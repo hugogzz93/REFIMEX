@@ -1,5 +1,9 @@
 class CrudController < ApplicationController
-  before_action :get_object, only: [:show, :update, :destroy]
+  before_action :find_model
+
+  def index
+    @objects = model.all
+  end
 
   def new
     @object = model.new
@@ -22,15 +26,15 @@ class CrudController < ApplicationController
 
   private
 
-  def get_object
-    @object = model.find params[:id]
-  end
-
   def model
     @klass ||= controller_name.singularize.camelize.constantize
   end
 
   def object_params
     params.require(model.name.underscore.to_sym).permit(model.column_names)
+  end
+
+  def find_model
+    @object = model.find(params[:id]) if params[:id]
   end
 end
