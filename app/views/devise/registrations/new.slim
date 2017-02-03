@@ -1,6 +1,4 @@
-= @simple_form_for @user do |f|
-  = f.error_notification
-  = f.input :email, placeholder: 'example@mail.com'
-  = f.input :password, placeholder: 'enter password'
-  = f.input :type, as: :radio_buttons, collection: ["Client", "Admin"]
-  = f.button :submit
+h2 Sign Up
+.row
+  .col-xs-6.col-lg-6.col-md-6.col-sm-12
+    = render "form"
