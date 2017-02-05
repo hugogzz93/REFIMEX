@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  has_many :modifiers
+  has_many :users, through: :modifiers
 
   def price(user)
     base_price + iva + ieps - user.discount

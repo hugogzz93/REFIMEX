@@ -4,7 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  enum type: [:client, :admin]
+  enum credentials: [:client, :admin]
+
+  has_many :modifiers
+  has_many :products, through: :modifiers
 
   def types
     ["Client", "Admin"]
