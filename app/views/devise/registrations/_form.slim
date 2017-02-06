@@ -5,7 +5,6 @@
     = f.input :password, hint: ("#{@minimum_password_length} characters minimum"\
                          if @minimum_password_length)
     = f.input :password_confirmation
-    = f.input :type, as: :radio_buttons, collection: resource.types
 
   .form-actions
     = f.button :submit, "Sign Up"

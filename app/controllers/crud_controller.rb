@@ -24,6 +24,7 @@ class CrudController < ApplicationController
   end
 
   def update
+    debugger
     if @object.update object_params
       redirect_to collection_path
     else

@@ -6,7 +6,6 @@ table.table.table-striped.table-hover.table-bordered
       th = product.base_price
       - product.users.each do |user|
         tr
-          td = user.name
-          td = user.email
+          td = link_to user.name, edit_user_path(user)
           td = product.price user
 
