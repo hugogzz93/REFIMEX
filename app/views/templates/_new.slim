@@ -1,0 +1,8 @@
+.row
+  .col-xs-6.col-lg-6.col-md-6.col-sm-12
+    .panel.panel-primary
+      .panel-heading
+        h3.panel-title = "New #{object.class.name}"
+      .panel-body
+          = render partial: "#{object.class.name.downcase}_form", locals:\
+                              {object: object}

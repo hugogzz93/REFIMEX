@@ -10,17 +10,29 @@ class CrudController < ApplicationController
   end
 
   def create
-    model.create object_params
+    if model.create object_params
+      redirect_to collection_path
+    else
+      render :new
+    end
   end
 
   def show
   end
 
+  def edit
+  end
+
   def update
-    @object.update object_params
+    if @object.update object_params
+      redirect_to collection_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    redirect_to collection_path
     @object.destroy
   end
 
@@ -36,5 +48,14 @@ class CrudController < ApplicationController
 
   def find_model
     @object = model.find(params[:id]) if params[:id]
+  end
+
+  def collection_path
+    view_context.url_for controller: controller_path, action: 'index'
+  end
+
+  def resource_path
+    view_context.url_for controller: controller_path, action: 'show',
+                          id: @object.to_param
   end
 end

@@ -1,8 +1,12 @@
-table.table.table-striped.table-hover
-  tr
-    th Name
-    th Base
+table.table.table-striped.table-hover.table-bordered
   - objects.each do |product|
-    tr
-      td.name = product.name
-      td.price = product.base_price
+    tr.info
+      th = link_to product.name, edit_product_path(product)
+
+      th = product.base_price
+      - product.users.each do |user|
+        tr
+          td = user.name
+          td = user.email
+          td = product.price user
+
