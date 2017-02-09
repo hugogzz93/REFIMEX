@@ -24,11 +24,16 @@ class CrudController < ApplicationController
   end
 
   def update
-    debugger
     if @object.update object_params
-      redirect_to collection_path
+      respond_to do |format|
+        format.html {redirect_to collection_path }
+        format.js
+      end
     else
-      render :edit
+      respond_to do |format|
+        format.html {render :edit}
+        format.js
+      end
     end
   end
 

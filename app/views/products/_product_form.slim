@@ -1,4 +1,4 @@
-  = form_for object do |f|
+  = form_for object, remote: true do |f|
       = f.text_field :name
       .row
         = f.number_field :iva

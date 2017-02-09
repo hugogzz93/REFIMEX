@@ -14,5 +14,6 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
+//= require sweetalert.min.js
 //= require_tree ./products
 //= require_tree .
