@@ -11,10 +11,25 @@
  * It is generally better to create a new file per style scope.
  *
  */
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "./*";
+@import "products/*";
 
 .danger {
   color: red;
+}
+
+.navbar {
+  background-image: linear-gradient($orange, $light-orange)
+}
+
+.footer {
+  @extend .navbar;
+  @extend .navbar-default;
+  @extend .navbar-fixed-bottom;
+}
+
+form {
+  font-family: Raleway, sans-serif;
 }

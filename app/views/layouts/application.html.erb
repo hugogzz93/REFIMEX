@@ -10,7 +10,7 @@
 
   <body>
     <% if user_signed_in? %>
-      <%= render partial: 'templates/navbar' %>
+      <%= render partial: 'shared/navbar' %>
       <%= link_to('Register', new_user_registration_path) %>
     <% end %>
     <div class="container">

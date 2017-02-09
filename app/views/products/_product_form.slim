@@ -1,6 +1,7 @@
-= simple_form_for object do |f|
- = f.input :name
- = f.input :base_price
- = f.input :iva
- = f.input :ieps
- = f.button :submit, "Save"
+  = form_for object do |f|
+      = f.text_field :name
+      .row
+        = f.number_field :iva
+        = f.number_field :base_price
+        = f.number_field :ieps
+      = f.submit "Save"
