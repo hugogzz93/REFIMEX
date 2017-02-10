@@ -1,45 +1,73 @@
-.edit_product {
-  @include make-row();
-  @include cols(12,6);
-  @include offset(0, 3);
-  @include clearfix();
-
-  background-color:transparent;
-  float: none !important;
-  transition: all 0.3s;
-
-  &.active {
-    background-color:white;
-  }
-
-  input {
-    float: none !important;
-    @extend .text-center;
-    
-    &[type="text"] {
-      @include make-row();
-      @include offset(0, 2);
-      @include cols(12, 8);
-    }
-
-    &[type="number"] {
+#edit-product-page {
+    ul {
+      color: $light-orange;
+      font-weight: 500;
       
-      &:not(:first-child){
-        @include offset(0, 2);
-      }
+      @include cols(12, 12);
 
-      &:not(:first-child):not(:last-child) {
-        @include cols(12, 4);
-      }
+      li {
+        list-style:none;
+        @include make-row();
+        &:hover {
+          color: $orange;
+        }
 
-      &:first-child, &:last-child {
-        @include cols(12, 2);
+        .user-name {
+          @extend .text-center;
+          @include offset(0, 3);
+          @include cols(10, 4);
+        }
+
+        .user-price {
+          @include cols(2,3);
+        }
       }
     }
 
-    &[type="submit"] {
-      @include make-row();
+
+  .edit_product {
+    @include make-row();
+    @include cols(12,6);
+    @include offset(0, 3);
+    @include clearfix();
+
+    background-color:transparent;
+    float: none !important;
+    transition: all 0.3s;
+
+    &.active {
+      background-color:white;
+    }
+    
+
+    input {
+      float: none !important;
+      @extend .text-center;
+      
+      &[type="text"] {
+        @include make-row();
+        @include offset(0, 2);
+        @include cols(12, 8);
+      }
+
+      &[type="number"] {
+        
+        &:not(:first-child){
+          @include offset(0, 2);
+        }
+
+        &:not(:first-child):not(:last-child) {
+          @include cols(12, 4);
+        }
+
+        &:first-child, &:last-child {
+          @include cols(12, 2);
+        }
+      }
+
+      &[type="submit"] {
+        @include make-row();
+      }
     }
   }
-
 }

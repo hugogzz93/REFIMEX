@@ -1,3 +1,10 @@
-.footer
-  .row
+#edit-product-page
+  = render partial: 'shared/search_bar', locals: { placeholder: "Username" }
+  .container#user-list
+    ul.list
+      - @users.each do |u|
+        li
+          .name = u.name
+          .price  = "$ #{@object.price(u)}"
+  .footer
     = render partial: 'shared/edit', locals: { object: @object }

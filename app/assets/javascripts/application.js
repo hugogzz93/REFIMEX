@@ -15,5 +15,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require sweetalert.min.js
+//= require list.js
 //= require_tree ./products
 //= require_tree .
