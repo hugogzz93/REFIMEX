@@ -1,0 +1,8 @@
+= form_tag({controller: "modifiers", action: "update"},\
+            method: "PATCH",
+            class: "hidden",
+            remote: true) do 
+  = hidden_field_tag "modifier[id]"
+  = hidden_field_tag "modifier[ammount]"
+  = hidden_field_tag "modifier[user_id]"
+  = hidden_field_tag "modifier[product_id]", product.id

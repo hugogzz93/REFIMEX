@@ -1,4 +1,5 @@
 #edit-product-page {
+  #user-list {
     ul {
       color: $light-orange;
       font-weight: 500;
@@ -8,21 +9,23 @@
       li {
         list-style:none;
         @include make-row();
+
         &:hover {
           color: $orange;
         }
 
-        .user-name {
+        .name {
           @extend .text-center;
           @include offset(0, 3);
           @include cols(10, 4);
         }
 
-        .user-price {
+        .price {
           @include cols(2,3);
         }
       }
     }
+  }
 
 
   .edit_product {

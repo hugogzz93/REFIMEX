@@ -27,12 +27,20 @@ class CrudController < ApplicationController
     if @object.update object_params
       respond_to do |format|
         format.html {redirect_to collection_path }
-        format.js
+        format.js {
+          @message = 'Success!'
+          @submessage = "#{model.name.capitalize} Updated!"
+          @type = 'success'
+        }
       end
     else
       respond_to do |format|
         format.html {render :edit}
-        format.js
+        format.js {
+          @message = 'Error'
+          @submessage = "#{@object.errors.full_messages.first}"
+          @type = 'error'
+        }
       end
     end
   end

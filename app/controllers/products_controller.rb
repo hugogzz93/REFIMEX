@@ -3,6 +3,6 @@ class ProductsController < CrudController
 
   def edit
     super
-    @users = @object.users
+    @users = User.all
   end
 end

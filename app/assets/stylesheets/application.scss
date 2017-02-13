@@ -17,6 +17,10 @@
 @import "products/*";
 @import "sweetalert";
 
+.hidden {
+  display:none;
+}
+
 .danger {
   color: red;
 }

@@ -1,2 +1,1 @@
-swal "Success!", "Product Updated!", "success"
-
+swal "<%= j @message %>", "<%= j @submessage %>", "<%= j @type %>"
