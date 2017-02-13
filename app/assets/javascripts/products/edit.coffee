@@ -3,14 +3,19 @@ $ ->
 
 
   $('.edit_product').on 'click', (e) ->
+    $('.active').removeClass 'active'
     $('.edit_product').addClass 'active'
 
-  $('#user-list, .search').on 'click', (e) ->
-    $('.edit_product').removeClass 'active'
+  $('.search').on 'click', (e) ->
+    $('.active').removeClass 'active'
 
   $('li').on 'click', (e) ->
-    $('li').removeClass 'active'
-    $(e.target).addClass 'active'
+    $('.active').removeClass 'active'
+    $(e.target).closest 'li'
+               .addClass 'active'
+               .find 'input'
+               .focus()
+
 
   $(document).on 'keypress', (e) ->
     elem = $($(':focus')[0])

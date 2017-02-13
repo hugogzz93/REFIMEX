@@ -1,26 +1,41 @@
 #edit-product-page {
+
+
   #user-list {
     ul {
+      @include cols(12, 12);
       color: $light-orange;
       font-weight: 500;
-      
-      @include cols(12, 12);
 
       li {
+        transition: all 0.3s;
         list-style:none;
         @include make-row();
 
         &:hover {
           color: $orange;
         }
+        
+        @media (min-width: $screen-md-min) { 
+          &.active {
+            @include shadowed();
+            padding: 1%;
+            margin: 1%;
+          }
+        }
 
         .name {
           @extend .text-center;
-          @include offset(0, 3);
-          @include cols(10, 4);
+          @include offset(0, 1);
+          @include cols(8, 4);
         }
 
         .price {
+          @include cols(2,3);
+        }
+
+        input {
+          @extend .discrete_input;
           @include cols(2,3);
         }
       }
@@ -38,14 +53,26 @@
     float: none !important;
     transition: all 0.3s;
 
+
     &.active {
+      @include shadowed;
+      @media (min-width: $screen-md-min) {
+        @include translate(0, -30%);
+      }
+      
       background-color:white;
+
+      & input {
+        color:black;
+      }
     }
     
-
     input {
-      float: none !important;
+      @extend .discrete_input;
       @extend .text-center;
+      float: none !important;
+      color: white;
+      background-color:transparent;
       
       &[type="text"] {
         @include make-row();
@@ -69,7 +96,7 @@
       }
 
       &[type="submit"] {
-        @include make-row();
+        @extend .hidden;
       }
     }
   }
