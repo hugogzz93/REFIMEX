@@ -1,0 +1,24 @@
+table.table
+  thead
+    tr
+      - if current_user.admin?
+        th User
+      th Product
+      th Units
+      th Cost
+      th Date
+      - if current_user.admin?
+        th Actions
+  tbody
+    - objects.each do |o|
+      tr
+        - if current_user.admin?
+          td = o.user.name
+        td = o.product.name
+        td = o.units
+        td = "$#{o.total_cost}"
+        td = o.created_at.strftime("%B %d, %Y")
+        - if current_user.admin?
+          td
+            span.badge.badge-danger
+              = link_to 'Delete', order_path(o), method: :delete

@@ -1,0 +1,7 @@
+= simple_form_for object do |f|
+  .form-inputs
+    = f.input :product_id, input_html: { value: product.id }, as: :hidden
+    = f.input :units, autofocus: true
+    = f.input :description
+  .form-actions
+    = f.button :submit, "Save", class: 'btn-primary'
