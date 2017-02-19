@@ -19,4 +19,12 @@
 //= require sweetalert.min.js
 //= require list.js
 //= require_tree ./products
-//= require_tree .
+// = require_tree .
+
+ready = function () {
+  // $('.card-header').on('click', function(e) {
+    // $(e.target).siblings('.card-block').toggleClass('no-height')
+}
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

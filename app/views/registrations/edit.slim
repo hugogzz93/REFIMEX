@@ -1,0 +1,16 @@
+.card
+  .card-header Edit User
+  .card-block
+    = simple_form_for resource, as: resource_name, url: registration_path(resource_name),
+     html: {  }, defaults: { } do |f|
+      .form-inputs
+        = f.input :name, autofocus: true
+        = f.input :email, placeholder: "example@mail.com"
+        = f.input :password, hint: ("#{@minimum_password_length} characters minimum"\
+                             if @minimum_password_length)
+        = f.input :password_confirmation
+        - if user_signed_in? && current_user.admin?
+          = f.input :credentials, as: :radio_buttons, collection: User.credential_list
+
+      .form-actions
+        = f.button :submit, "Save", class: 'btn-primary'
