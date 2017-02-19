@@ -14,6 +14,8 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  protected
+
   def administrator
     user_signed_in? && current_user.admin?
   end

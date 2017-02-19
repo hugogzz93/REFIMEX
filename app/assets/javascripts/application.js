@@ -11,20 +11,18 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery
 //= require tether
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require sweetalert.min.js
 //= require list.js
+//= require selectize.js
 //= require_tree ./products
 // = require_tree .
 
-ready = function () {
-  // $('.card-header').on('click', function(e) {
-    // $(e.target).siblings('.card-block').toggleClass('no-height')
-}
 
-$(document).ready(ready)
-$(document).on('page:load', ready)
+$(document).on("turbolinks:load", function () {
+  
+})
+  

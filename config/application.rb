@@ -11,7 +11,8 @@ module REFIMEX
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.autoload_paths << Rails.root.join('lib')
+    config.assets.paths << Rails.root.join('lib')
+    # config.assets_paths << Rails.root.join('lib')
     config.generators do |g|
       g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
