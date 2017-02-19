@@ -9,4 +9,10 @@
   min-height: 50px;
   margin-bottom: 22px;
   background-color:$navbar-default-bg;
+
+  .btn {
+    a {
+      color:white;
+    }
+  }
 }

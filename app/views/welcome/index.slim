@@ -1,0 +1,23 @@
+- @products.each do |p|
+  .card
+    .card-header = link_to p.name, edit_product_path(p)
+    .card-block
+      table
+        thead
+          tr
+            th Name
+            th Discount
+            th Price
+            th Actions
+        tbody
+          - p.users.each do |u|
+            tr
+              td = u.name
+              td = p.discount_for(u)
+              td = p.price_for u
+              td
+                span.badge.badge-primary 
+                  = link_to 'Edit', edit_user_registration_path(u)
+                | /
+                span.badge.badge-danger
+                  = link_to 'Delete', user_registration_path(u), method: :delete

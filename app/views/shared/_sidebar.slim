@@ -3,5 +3,6 @@
     | Menu
   .card-block
     ul
-      li Users 
-      li Products
+      li = link_to 'Products', products_path
+      li = link_to 'Users', user_registration_path
+      li = link_to 'New User', new_user_registration_path

@@ -1,4 +1,5 @@
-.h3 = objects.first.class.name.pluralize
-.row
-  = render partial: "#{objects.first.class.name.downcase}_table", locals: {\
-                         objects: objects }
+.card
+  .card-header = objects.first.class.name.pluralize
+  .card-content
+    = render partial: "#{objects.first.class.name.downcase}_table", locals: {\
+                             objects: objects }

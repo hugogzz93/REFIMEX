@@ -58,6 +58,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'rspec-rails'
+  gem 'bullet'
 end
 
 group :development do
