@@ -11,7 +11,7 @@ html
     .container
       .row
         .col-3
-          - if user_signed_in? && current_user.admin?
+          - if user_signed_in?
             = render partial: 'shared/sidebar'
         .col-9
           = yield

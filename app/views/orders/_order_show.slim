@@ -1,0 +1,10 @@
+= simple_form_for object do |f|
+  .form-inputs
+    .form-group
+      .row
+        .col
+          h4 = object.product.name
+        .col
+          = object.created_at.strftime("%B %d, %Y")
+    = f.input :units, disabled: true
+    = f.input :description, disabled: true

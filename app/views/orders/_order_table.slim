@@ -7,8 +7,7 @@ table.table
       th Units
       th Cost
       th Date
-      - if current_user.admin?
-        th Actions
+      th Actions
   tbody
     - objects.each do |o|
       tr
@@ -18,7 +17,10 @@ table.table
         td = o.units
         td = "$#{o.total_cost}"
         td = o.created_at.strftime("%B %d, %Y")
-        - if current_user.admin?
-          td
+        td
+          span.badge.badge-primary
+            = link_to 'View', order_path(o)
+          - if current_user.admin?
+            | /
             span.badge.badge-danger
               = link_to 'Delete', order_path(o), method: :delete

@@ -6,6 +6,10 @@ class OrdersController < CrudController
                                                         .includes([:product, :user]) 
   end
 
+  def show
+    @object = model.find(params[:id])
+  end
+
   def new
     @product = Product.find(params[:product_id])
     super
@@ -18,5 +22,4 @@ class OrdersController < CrudController
       render :new
     end
   end
-
 end
