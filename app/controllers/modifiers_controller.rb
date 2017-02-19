@@ -1,5 +1,6 @@
 class ModifiersController < CrudController
-  before_action :allow_admin
+  before_action :permit_if_admin
+  
   def find_model
     if params[:modifier][:id]
       @object = model.find(params[:modifier][:id])

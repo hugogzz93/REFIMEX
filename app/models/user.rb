@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :modifiers
   has_many :products, through: :modifiers
 
-  def credential_list
-    ["Client", "Admin"]
+  def self.credential_list
+    ["client", "admin"]
   end
 end

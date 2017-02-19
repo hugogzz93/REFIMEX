@@ -9,9 +9,10 @@
   </head>
 
   <body>
+    <%= params[:controller] %>
+    <%= params[:action] %>
     <% if user_signed_in? %>
       <%= render partial: 'shared/navbar' %>
-      <%= link_to('Register', new_user_registration_path) %>
     <% end %>
     <div class="container">
       <%= yield %>

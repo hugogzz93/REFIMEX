@@ -1,5 +1,5 @@
 class ProductsController < CrudController
-  before_action :allow_admin, only: [:edit, :delete, :new, :index]
+  before_action :permit_if_admin, only: [:edit, :delete, :new]
 
   def edit
     super

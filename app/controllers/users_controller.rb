@@ -1,22 +1,28 @@
-class UsersController < CrudController
-  before_action :protect_user_from_other, except: [:index]
+class UsersController < Devise::RegistrationsController
+  skip_before_filter :require_no_authentication, only: [:new, :create], if: :administrator
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  private
-
-  def protect_user_from_other
-    redirect_to collection_path unless current_user.admin? || current_user.id == params[:id]
+  def create
+    if user_signed_in? && current_user.admin?
+      if User.create user_admin_params
+        redirect_to root_path
+      else
+        render :new
+      end
+    else
+      super
+    end
   end
 
-  def object_params
-    if current_user.admin?
-      params.require(model.name.underscore.to_sym).permit(model.column_names, 
-                                                          :password,
-                                                          :password_confirmation)
-    else
-      params.require(model.name.underscore.to_sym).permit(:name, 
-                                                          :email,
-                                                          :password,
-                                                          :password_confirmation)
-    end
+  def administrator
+    user_signed_in? && current_user.admin?
+  end
+
+  def user_admin_params
+    params.require(:user).permit(:name, :credentials, :email, :password, :password_confirmation)
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 end

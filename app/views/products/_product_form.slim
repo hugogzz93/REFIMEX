@@ -1,7 +1,8 @@
   = form_for object, remote: true do |f|
+    .primary
       = f.text_field :name
-      .row
-        = f.number_field :iva
-        = f.number_field :base_price
-        = f.number_field :ieps
-      = f.submit "Save"
+    .secondary
+      = f.number_field :iva
+      = f.number_field :base_price
+      = f.number_field :ieps
+    = f.submit "Save"

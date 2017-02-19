@@ -67,6 +67,14 @@
       }
     }
     
+    .primary {
+      @include make-row;
+    }
+
+    .secondary {
+      @include make-row;
+    }
+    
     input {
       @extend .discrete_input;
       @extend .text-center;
