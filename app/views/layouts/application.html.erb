@@ -9,10 +9,11 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= render partial: 'shared/navbar' %>
-    <% end %>
+    <%= render partial: 'shared/navbar' %>
     <div class="container">
+      <% if user_signed_in? && current_user.admin? %>
+          <%= render partial: 'shared/sidebar' %>
+      <% end %>
       <%= yield %>
     </div>
   </body>
