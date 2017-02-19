@@ -8,9 +8,13 @@ class Product < ApplicationRecord
 
   def discount_for(user)
     begin
-      modifiers.where(user: user).first.ammount.to_f / 100
+      modifier_for(user).ammount.to_f / 100
     rescue 
       0
     end
+  end
+
+  def modifier_for(user)
+    modifiers.find_by(user: user)
   end
 end

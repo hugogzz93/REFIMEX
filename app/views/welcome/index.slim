@@ -17,7 +17,7 @@
               td = p.price_for u
               td
                 span.badge.badge-primary 
-                  = link_to 'Edit', edit_user_registration_path(u)
+                  = link_to 'Edit', edit_modifier_path(p.modifier_for u)
                 | /
                 span.badge.badge-danger
-                  = link_to 'Delete', user_registration_path(u), method: :delete
+                  = link_to 'Delete', modifier_path(p.modifier_for u), method: :delete
