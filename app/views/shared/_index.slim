@@ -1,5 +1,4 @@
 .h3 = objects.first.class.name.pluralize
 .row
-  .col-xs-6.col-lg-6.col-md-6.col-sm-12
-    = render partial: "#{objects.first.class.name.downcase}_table", locals: {\
+  = render partial: "#{objects.first.class.name.downcase}_table", locals: {\
                          objects: objects }

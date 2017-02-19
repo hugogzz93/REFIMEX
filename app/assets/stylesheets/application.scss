@@ -11,7 +11,6 @@
  * It is generally better to create a new file per style scope.
  *
  */
-@import "bootstrap-sprockets";
 @import "bootstrap";
 @import "./*";
 @import "products/*";
@@ -26,13 +25,13 @@
 }
 
 .navbar {
-  background-image: linear-gradient($orange, $light-orange)
+  // background-image: linear-gradient($orange, $light-orange)
 }
 
 .footer {
-  @extend .navbar;
-  @extend .navbar-default;
-  @extend .navbar-fixed-bottom;
+  // @extend .navbar;
+  // @extend .navbar-default;
+  // @extend .navbar-fixed-bottom;
 }
 
 form {
@@ -53,4 +52,8 @@ form {
     -webkit-appearance: none;
     margin: 0;
   }
+}
+
+.col {
+  border: 1px solid black;
 }

@@ -1,42 +1,42 @@
-@mixin column-scheme($xs, $sm, $md, $lg) {
-  @include make-xs-column($xs);
-  @include make-sm-column($sm);
-  @include make-md-column($md);
-  @include make-lg-column($lg);
-}
+// @mixin column-scheme($xs, $sm, $md, $lg) {
+//   @include make-xs-column($xs);
+//   @include make-sm-column($sm);
+//   @include make-md-column($md);
+//   @include make-lg-column($lg);
+// }
 
-@mixin col-offset($xs, $sm, $md, $lg) {
-  @include make-xs-column-offset($xs);
-  @include make-sm-column-offset($sm);
-  @include make-md-column-offset($md);
-  @include make-lg-column-offset($lg);
-}
+// @mixin col-offset($xs, $sm, $md, $lg) {
+//   @include make-xs-column-offset($xs);
+//   @include make-sm-column-offset($sm);
+//   @include make-md-column-offset($md);
+//   @include make-lg-column-offset($lg);
+// }
 
-@mixin cols($sm, $bg) {
-  @include column-scheme($sm, $sm, $bg, $bg);
-}
+// @mixin cols($sm, $bg) {
+//   @include column-scheme($sm, $sm, $bg, $bg);
+// }
 
-@mixin offset($sm,$bg) {
-  @include col-offset($sm, $sm, $bg, $bg);
-}
+// @mixin offset($sm,$bg) {
+//   @include col-offset($sm, $sm, $bg, $bg);
+// }
 
-@mixin box-shadow($shadows...) {
-  -moz-box-shadow: $shadows;
-  -webkit-box-shadow: $shadows;
-  box-shadow: $shadows;
-}
+// @mixin box-shadow($shadows...) {
+//   -moz-box-shadow: $shadows;
+//   -webkit-box-shadow: $shadows;
+//   box-shadow: $shadows;
+// }
 
-@mixin shadowed() {
-  @include box-shadow(0px 0px 16px 1px rgba(0,0,0,0.45));
-}
+// @mixin shadowed() {
+//   @include box-shadow(0px 0px 16px 1px rgba(0,0,0,0.45));
+// }
 
-@mixin center($size) {
-  @include cols(12, $size);
-  @include offset(0, ($size - 12)/2);
-}
+// @mixin center($size) {
+//   @include cols(12, $size);
+//   @include offset(0, ($size - 12)/2);
+// }
 
-@mixin translate($x, $y) {
-  -ms-transform: translate($x, $y); /* IE 9 */
-  -webkit-transform: translate($x, $y); /* Safari */
-  transform: translate($x, $y);
-}
+// @mixin translate($x, $y) {
+//   -ms-transform: translate($x, $y); /* IE 9 */
+//   -webkit-transform: translate($x, $y); /* Safari */
+//   transform: translate($x, $y);
+// }
