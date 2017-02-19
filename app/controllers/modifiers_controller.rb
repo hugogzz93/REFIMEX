@@ -1,6 +1,10 @@
 class ModifiersController < CrudController
   before_action :permit_if_admin
 
+  def index
+    @products = Product.all
+  end
+
   def update
     object = model.find params[:modifier][:id]
     if object.update object_params

@@ -1,0 +1,17 @@
+.card
+  .card-header Productos
+  .card-block
+    table.table
+      thead
+        tr
+          th Name
+          th Price Per Liter
+          th Order
+      tbody
+        - user.modifiers.each do |m|
+          tr
+            td = m.product.name
+            td = "$#{m.product.price_for user}"
+            td
+              span.badge.badge-primary 
+                = link_to 'Order', edit_product_path(m.product)
