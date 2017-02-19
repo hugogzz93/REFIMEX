@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_many :modifiers
+  has_many :modifiers, dependent: :destroy
   has_many :users, through: :modifiers
 
   def price_for(user)

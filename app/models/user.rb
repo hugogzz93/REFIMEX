@@ -6,7 +6,8 @@ class User < ApplicationRecord
 
   enum credentials: [:client, :admin]
 
-  has_many :modifiers
+  has_many :modifiers, dependent: :destroy
+  has_many :orders, dependent: :destroy
   has_many :products, through: :modifiers
 
   def self.credential_list
