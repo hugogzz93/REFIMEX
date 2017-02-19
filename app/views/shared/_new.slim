@@ -1,6 +1,7 @@
-.card
-  .card-header = "New #{object.class.name}"
-  .card-block
-    = render partial: "#{object.class.name.downcase}_form", locals:\
-                        {object: object}
-          
+- if object
+  .card
+    .card-header = "New #{object.class.name}"
+    .card-block
+      = render partial: "#{object.class.name.downcase}_form", locals:\
+                          {object: object}
+            

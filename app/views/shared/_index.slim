@@ -1,5 +1,6 @@
-.card
-  .card-header = objects.first.class.name.pluralize
-  .card-content
-    = render partial: "#{objects.first.class.name.downcase}_table", locals: {\
-                             objects: objects }
+- if objects.any?
+  .card
+    .card-header = objects.first.class.name.pluralize
+    .card-content
+      = render partial: "#{objects.first.class.name.downcase}_table", locals: {\
+                               objects: objects }
