@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get '/modifiers/find', to: 'modifiers#find', as: 'find_modifier'
   get '/orders/:product_id/new', to: 'orders#new', as: 'new_order'
+  get 'registration/new', to: 'registrations#new', as: 'new_user'
+  # get 'orders/new', to: 'registrations#new', as: 'new_user'
 
   delete '/sign_out', to: 'sessions#log_out', as: 'sign_out'
 

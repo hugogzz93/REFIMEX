@@ -30,11 +30,25 @@ body {
   margin-bottom: 1%;
 }
 
-.badge {
+.card-content {
+  .btn {
+    margin: 1%;
+    font-size: 12px;
+  }
+  
+  .btn-primary {
+    color: #fff;
+    background-color: #2579a9;
+    border-color: #1f648b;
+  }
+}
+
+.badge, .btn {
   a {
     color:white;
   }
 }
+
 
 .discrete_input {
   border:none;

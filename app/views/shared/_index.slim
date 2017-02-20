@@ -1,6 +1,10 @@
+- klass = objects.first.class.name
 - if objects.any?
   .card
-    .card-header = objects.first.class.name.pluralize
+    .card-header = klass.pluralize
     .card-content
-      = render partial: "#{objects.first.class.name.downcase}_table", locals: {\
+      - unless klass == "Order"
+        button.btn.btn-primary.float-right
+          = link_to "New #{klass}", send("new_#{klass.downcase}_path")
+      = render partial: "#{klass.downcase}_table", locals: {\
                                objects: objects }
