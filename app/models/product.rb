@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   has_many :modifiers, dependent: :destroy
   has_many :users, through: :modifiers
+  has_many :product_prices, dependent: :destroy
+
 
   def price_for(user)
       (base_price + iva/100 + ieps - discount_for(user)).round 2

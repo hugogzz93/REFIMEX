@@ -18,11 +18,13 @@
 //= require sweetalert.min.js
 //= require list.js
 //= require selectize.js
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree ./products
 // = require_tree .
 
 
 $(document).on("turbolinks:load", function () {
-  
+  $('.datetimepicker').datetimepicker()
 })
   
