@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require sweetalert.min.js
 //= require list.js
+//= require chart.js
 //= require selectize.js
 //= require moment
 //= require bootstrap-datetimepicker
