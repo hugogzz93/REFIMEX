@@ -7,6 +7,7 @@ class ProductsController < CrudController
 
   def edit
     super
+    @product_prices = @object.product_prices
     @users = User.all
   end
 end

@@ -1,0 +1,23 @@
+table.table
+  thead
+    tr
+      th Date
+      th Fiscal Stimulus
+      th Diminished Quotes
+      th Final Price
+      th Actions
+
+  tbody
+    - objects.each do |u|
+      tr
+        td = u.active_date.strftime("%B %d, %Y")
+        td = u.fiscal_stimulus
+        td = u.diminished_quote
+        td = u.final_price
+        td 
+          span.badge.badge-primary 
+            = link_to 'Edit', send("edit_#{u.class.name.underscore}_path", u)
+          | /
+          span.badge.badge-danger
+            = link_to 'Delete', send("#{u.class.name.underscore}_path", u),
+                                method: :delete

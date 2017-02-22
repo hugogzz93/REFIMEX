@@ -1,4 +1,5 @@
 = render partial: 'shared/edit', locals: { object: @object }
+= render partial: 'shared/index', locals: { objects: @product_prices }
 / #edit-product-page product-id = @object.id
 /   = render partial: 'shared/search_bar', locals: { placeholder: "Username" }
 

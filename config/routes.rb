@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   delete '/sign_out', to: 'sessions#log_out', as: 'sign_out'
 
-  resources :products, :modifiers
+  resources :products, :modifiers, :product_prices
   resources :orders, only: [:create, :index, :destroy, :show]
   resources :users, only: [:index, :edit, :update, :destroy]
   devise_for :users, controllers: { registrations: 'registrations' }
