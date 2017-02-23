@@ -5,6 +5,9 @@
     .card-content
       - unless klass == "Order"
         button.btn.btn-primary.float-right
-          = link_to "New #{klass}", send("new_#{klass.underscore}_path")
+          - if defined? parent
+              = link_to "New #{klass}", send("new_#{klass.underscore}_path", parent )
+          - else
+              = link_to "New #{klass}", send("new_#{klass.underscore}_path")
       = render partial: "#{klass.underscore}_table", locals: {\
                                objects: objects }

@@ -15,9 +15,6 @@ table.table
         td = u.diminished_quote
         td = u.final_price
         td 
-          span.badge.badge-primary 
-            = link_to 'Edit', send("edit_#{u.class.name.underscore}_path", u)
-          | /
           span.badge.badge-danger
-            = link_to 'Delete', send("#{u.class.name.underscore}_path", u),
+            = link_to 'Delete', send("delete_#{u.class.name.underscore}_path", u),
                                 method: :delete

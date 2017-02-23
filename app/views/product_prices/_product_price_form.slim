@@ -1,0 +1,15 @@
+= simple_form_for object do |f|
+  .form-inputs
+    = f.input :product_id, input_html: { value: parent.id }, as: :hidden
+    .row
+      .col
+        = f.input :fiscal_stimulus
+      .col
+        = f.input :final_price
+      .col
+        = f.input :diminished_quote
+    .row
+      .col
+        = f.input :active_date
+  .form-actions
+    = f.button :submit, 'Save', class: 'btn-primary'

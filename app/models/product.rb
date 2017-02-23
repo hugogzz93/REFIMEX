@@ -5,7 +5,7 @@ class Product < ApplicationRecord
 
 
   def price_for(user)
-      (base_price + iva/100 + ieps - discount_for(user)).round 2
+      (price - discount_for(user)).round 2
   end
 
   def discount_for(user)
@@ -18,5 +18,13 @@ class Product < ApplicationRecord
 
   def modifier_for(user)
     modifiers.find_by(user: user)
+  end
+
+  def price
+    active_product_price.price
+  end
+
+  def active_product_price
+    product_prices.where("active_date <= :now", now: Time.zone.now).last
   end
 end
