@@ -6,5 +6,4 @@ FactoryGirl.define do
     active_date { Time.zone.now }
     product
   end
-
 end

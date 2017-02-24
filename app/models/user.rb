@@ -11,6 +11,6 @@ class User < ApplicationRecord
   has_many :products, through: :modifiers
 
   def self.credential_list
-    ["client", "admin"]
+    %w(client admin)
   end
 end

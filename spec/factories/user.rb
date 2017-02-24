@@ -3,14 +3,14 @@ FactoryGirl.define do
   factory :user do
     name { FFaker::Name.name }
     email { FFaker::Internet.email }
-    password "123456"
+    password '123456'
     credentials :client
   end
 
   factory :admin, class: User do
-      name { FFaker::Name.name }
-      email { FFaker::Internet.email }
-      password "123456"
-      credentials :admin
-    end
+    name { FFaker::Name.name }
+    email { FFaker::Internet.email }
+    password '123456'
+    credentials :admin
+  end
 end

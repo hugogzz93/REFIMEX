@@ -1,9 +1,8 @@
 class OrdersController < CrudController
-
   def index
     @objects = current_user.admin? ? Order.all : current_user
-                                                        .orders
-                                                        .includes([:product, :user]) 
+      .orders
+      .includes([:product, :user])
   end
 
   def show
@@ -16,7 +15,7 @@ class OrdersController < CrudController
   end
 
   def create
-    if model.create object_params.merge({user_id: current_user.id})
+    if model.create object_params.merge(user_id: current_user.id)
       redirect_to collection_path
     else
       render :new

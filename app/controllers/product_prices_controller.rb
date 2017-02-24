@@ -1,5 +1,4 @@
 class ProductPricesController < CrudController
-
   def new
     super
     @parent = Product.find params[:product_id]
@@ -16,7 +15,6 @@ class ProductPricesController < CrudController
   def destroy
     redirect_to parent_path @object.product
     @object.destroy
-    
   end
 
   private

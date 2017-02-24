@@ -26,21 +26,21 @@ class CrudController < ApplicationController
   def update
     if @object.update object_params
       respond_to do |format|
-        format.html {redirect_to collection_path }
-        format.js {
+        format.html { redirect_to collection_path }
+        format.js do
           @message = 'Success!'
           @submessage = "#{model.name.capitalize} Updated!"
           @type = 'success'
-        }
+        end
       end
     else
       respond_to do |format|
-        format.html {render :edit}
-        format.js {
+        format.html { render :edit }
+        format.js do
           @message = 'Error'
-          @submessage = "#{@object.errors.full_messages.first}"
+          @submessage = @object.errors.full_messages.first.to_s
           @type = 'error'
-        }
+        end
       end
     end
   end
@@ -70,6 +70,6 @@ class CrudController < ApplicationController
 
   def resource_path
     view_context.url_for controller: controller_path, action: 'show',
-                          id: @object.to_param
+                         id: @object.to_param
   end
 end

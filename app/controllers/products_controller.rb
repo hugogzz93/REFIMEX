@@ -9,9 +9,6 @@ class ProductsController < CrudController
     super
     @product_prices = @object.product_prices.order(active_date: :desc)
     @users = User.all
-    # @object_data = @objects.map { |x| x.class.chart_digest(Time.zone.now, "month") }
-    
-    # gon.objects = @objects.map { |x| x.class.name.downcase }
-    # gon.object_data = @object_data
+    gon.chart_data = ProductPrice.chart_digest({product_id: @object.id}, Time.zone.now, "month")
   end
 end

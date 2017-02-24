@@ -3,5 +3,5 @@
     .card-header = "New #{object.class.name}"
     .card-block
       = render partial: "#{object.class.name.underscore}_form", locals:\
-                          {object: object, parent: parent || nil}
+                          {object: object, parent: (defined? parent) ? parent : nil}
             

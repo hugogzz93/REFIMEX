@@ -1,28 +1,31 @@
 module Valued
   module ClassMethods
-    def chart_digest(date, scope)
-      objects = by_date(date, scope)
+    def chart_digest(scope, date, time_range)
+      objects = by_date(date, time_range).where(scope)
       {
-        labels: objects.map { |x| x.labels_helper },
-        datasets:[{
-          label: label,
-          data: objects.map(&:value)
-        }]
-      }.to_json
+        labels: objects.map(&:labels_helper),
+        datasets: chart_datasets(objects)
+      }
     end
 
     def label
-      "must define a label method"
+      'must define a label method'
     end
 
-    def labels_helper
-      self.created_at.strftime("%d/%m")
+    def chart_datasets(objects)
+      [{
+        label: label,
+        data: objects.map(&:value)
+      }]
     end
   end
-  
+
   module InstanceMethods
+    def labels_helper
+      created_at.strftime('%d/%m')
+    end
   end
-  
+
   def self.included(receiver)
     receiver.extend         ClassMethods
     receiver.send :include, InstanceMethods

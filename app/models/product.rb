@@ -3,17 +3,14 @@ class Product < ApplicationRecord
   has_many :users, through: :modifiers
   has_many :product_prices, dependent: :destroy
 
-
   def price_for(user)
-      (price - discount_for(user)).round 2
+    (price - discount_for(user)).round 2
   end
 
   def discount_for(user)
-    begin
-      modifier_for(user).ammount.to_f / 100
-    rescue 
-      0
-    end
+    modifier_for(user).ammount.to_f / 100
+  rescue
+    0
   end
 
   def modifier_for(user)
@@ -25,6 +22,6 @@ class Product < ApplicationRecord
   end
 
   def active_product_price
-    product_prices.where("active_date <= :now", now: Time.zone.now).last
+    product_prices.where('active_date <= :now', now: Time.zone.now).last
   end
 end

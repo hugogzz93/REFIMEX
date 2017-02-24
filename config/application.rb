@@ -23,6 +23,5 @@ module REFIMEX
       g.javascripts = false
       g.helper = false
     end
-
   end
 end

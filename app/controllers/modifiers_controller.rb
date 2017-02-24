@@ -14,7 +14,6 @@ class ModifiersController < CrudController
     end
   end
 
-
   def create # NOT ACTUALLY NEW, IT ONLY UPDATES
     update
   end
@@ -26,10 +25,10 @@ class ModifiersController < CrudController
 
   def find # MODIFIERS ARE GENERATED HERE
     respond_to do |format|
-      format.json {
+      format.json do
         render json: Modifier.find_or_create_by(user_id:    params[:user_id],
                                                 product_id: params[:product_id])
-      }
+      end
     end
   end
 end
