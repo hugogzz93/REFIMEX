@@ -1,16 +1,15 @@
-- klass = objects.first.class.name
-- if objects.any?
-  .card
+.card
     .card-header = klass.pluralize
     .card-content
-      - unless klass == "Order"
-        button.btn.btn-primary.float-right
-          - if defined? parent
-              = link_to "New #{klass}", send("new_#{klass.underscore}_path", parent )
-          - elsif klass == "User"
-              = link_to "New #{klass}", new_user_registration_path
-          - else
-              = link_to "New #{klass}", send("new_#{klass.underscore}_path")
-
-      = render partial: "#{klass.underscore}_table", locals: {\
-                               objects: objects }
+      button.btn.btn-primary.float-right
+        - if defined? parent
+            = link_to "New #{klass}", send("new_#{klass.underscore}_path", parent )
+        - elsif klass == "User"
+            = link_to "New #{klass}", new_user_registration_path
+        - else
+            = link_to "New #{klass}", send("new_#{klass.underscore}_path")
+      - if objects.any?
+        = render partial: "#{klass.underscore}_table", locals: {\
+                                 objects: objects }
+      - else
+        p.col = "No #{klass.pluralize}"

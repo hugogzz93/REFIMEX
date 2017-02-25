@@ -1,10 +1,12 @@
 class Product < ApplicationRecord
   has_many :modifiers, dependent: :destroy
   has_many :users, through: :modifiers
-  has_many :product_prices, dependent: :destroy
+  has_many :product_prices, inverse_of: :product, dependent: :destroy
+
+  accepts_nested_attributes_for :product_prices
 
   def price_for(user)
-    (price - discount_for(user)).round 2
+      (price - discount_for(user)).round 2
   end
 
   def discount_for(user)
@@ -18,7 +20,7 @@ class Product < ApplicationRecord
   end
 
   def price
-    active_product_price.price
+      active_product_price.price
   end
 
   def active_product_price

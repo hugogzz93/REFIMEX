@@ -3,16 +3,16 @@
     .row
       .col-4
         = f.input :name, autofocus: true
-    / = f.simple_fields_for :product_price do |pp|
-    /   .row
-    /     .col
-    /       = pp.input :fiscal_stimulus
-    /     .col  
-    /       = pp.input :diminished_quote
-    /     .col  
-    /       = pp.input :final_price
-    /   .row
-    /     .col
-    /       = pp.input :date
+    -unless object.id
+      = f.simple_fields_for :product_prices do |pp|
+        = pp.input :active_date, as: :hidden, input_html: { value: Time.zone.now }
+        / = pp.input :product, as: :hidden, input_html: { value: object }
+        .row
+          .col
+            = pp.input :fiscal_stimulus, required: true
+          .col  
+            = pp.input :diminished_quote, required: true
+          .col  
+            = pp.input :final_price, required: true
   .form-actions
     = f.button :submit, 'Save', class: 'btn-primary'
