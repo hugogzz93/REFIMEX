@@ -1,20 +1,18 @@
-= render partial: 'shared/edit', locals: { object: @object }
+- if @object
+  .card
+    .card-header = "Edit #{@object.class.name}"
+    .card-block
+      = render partial: "#{@object.class.name.downcase}_form", locals: { object: @object }
+      / = link_to 'Destroy', @object, :method => :delete, :confirm => "Are you sure?",
+                 class: 'danger'
+  - if defined? chart && chart
+    .card
+      .card-header = chart_header if defined? chart_header
+      .card-content
+        canvas id="#{@object.class.name.underscore}_chart" height="80px"
+
 = render partial: 'shared/index', locals: { objects: @product_prices,
                                             parent:  @object,
+                                            klass: "ProductPrice",
                                             chart: true,
                                             chart_index: "Product Prices"}
-/ #edit-product-page product-id = @object.id
-/   = render partial: 'shared/search_bar', locals: { placeholder: "Username" }
-
-/   #user-list
-/     ul.list
-/       - @users.each do |u|
-/         - modifier = Modifier.find_or_create_by(user:u, product:@object)
-/         li user-id=u.id modifier-id=modifier.id
-/           .name = u.name
-/           .price  = "$ #{@object.price(u)}"
-/           input.discount type="number" modifier-id=modifier.id user-id=u.id value = @object.discount_for(u)
-
-/   .footer
-/     = render partial: 'shared/edit', locals: { object: @object }
-/     = render partial: 'modifiers/hidden_form', locals: { product: @object }

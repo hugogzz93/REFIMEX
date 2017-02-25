@@ -2,15 +2,13 @@ table.table
   thead
     tr
       th Name
-      th Ieps
-      th Price
+      th Price Per Liter
       th Actions
   tbody
     - objects.each do |o|
       tr
         td = o.name
-        td = "$#{o.ieps}"
-        td = "$#{o.base_price}"
+        td = "$#{o.price}"
         td
           span.badge.badge-primary 
             = link_to 'Edit', edit_product_path(o)
