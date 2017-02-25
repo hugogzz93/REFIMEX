@@ -16,17 +16,17 @@ class ProductPrice < ApplicationRecord
       [{
         label: 'Price',
         data: objects.map(&:price),
-        backgroundColor: "rgba(220,220,220,0)",
+        backgroundColor: "rgba(81, 157, 178,0.1)",
         borderColor: "#519D9E",
       }, {
         label: 'Diminished Quote',
         data: objects.map(&:diminished_quote),
-        backgroundColor: "rgba(220,220,220,0)",
+        backgroundColor: "rgba(229,58,64,0.3)",
         borderColor: "#E53A40",
       }, {
         label: 'Fiscal Stimulus',
         data: objects.map(&:fiscal_stimulus),
-        backgroundColor: "rgba(220,220,220,0)",
+        backgroundColor: "rgba(48,168,222,0.5)",
         borderColor: "#30A9DE",
       }]
     end
