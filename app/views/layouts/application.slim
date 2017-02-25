@@ -3,11 +3,11 @@ html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
     title REFIMEX
-    = Gon::Base.render_data
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  body
+  body data-controller = controller.controller_name data-action = controller.action_name
+    = Gon::Base.render_data
     = render partial: 'shared/navbar'
     .container
       .row
