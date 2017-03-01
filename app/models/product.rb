@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   end
 
   def discount_for(user)
-    modifier_for(user).ammount.to_f / 100
+    modifier_for(user).ammount.to_f
   rescue
     0
   end
