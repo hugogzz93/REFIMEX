@@ -1,6 +1,6 @@
 - if object
   .card
-    .card-header = "New #{object.class.name}"
+    .card-header = t("new#{object.class.name.downcase}")
     .card-block
       = render partial: "#{object.class.name.underscore}_form", locals:\
                           {object: object, parent: (defined? parent) ? parent : nil}

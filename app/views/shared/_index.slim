@@ -4,13 +4,13 @@
       - if klass != "Order"
         button.btn.btn-primary.float-right
           - if defined? parent
-              = link_to "New #{klass}", send("new_#{klass.underscore}_path", parent )
+              = link_to t("new#{klass}".downcase), send("new_#{klass.underscore}_path", parent )
           - elsif klass == "User"
-              = link_to "New #{klass}", new_user_registration_path
+              = link_to t("new#{klass}".downcase), new_user_registration_path
           - else
-              = link_to "New #{klass}", send("new_#{klass.underscore}_path")
+              = link_to t("new#{klass}".downcase), send("new_#{klass.underscore}_path")
       - if objects.any?
         = render partial: "#{klass.underscore}_table", locals: {\
                                  objects: objects }
       - else
-        p.col = "No #{klass.pluralize}"
+        p.col = t("no#{klass.pluralize.downcase}".downcase)
