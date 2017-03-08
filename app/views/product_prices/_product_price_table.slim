@@ -1,11 +1,11 @@
 table.table
   thead
     tr
-      th Date
-      th Fiscal Stimulus
-      th Diminished Quotes
-      th Final Price
-      th Actions
+      th = t(:date_f).capitalize
+      th = t(:fiscal_stimulus)
+      th = t(:diminished_quote)
+      th = t(:final_price)
+      th = t(:actions).capitalize
 
   tbody
     - objects.each do |u|
@@ -16,8 +16,8 @@ table.table
         td = u.final_price
         td 
           span.badge.badge-primary 
-            = link_to 'Edit', send("edit_#{u.class.name.underscore}_path", u)
+            = link_to t(:edit).capitalize, send("edit_#{u.class.name.underscore}_path", u)
           | /
           span.badge.badge-danger
-            = link_to 'Delete', send("#{u.class.name.underscore}_path", u),
+            = link_to t(:delete).capitalize, send("#{u.class.name.underscore}_path", u),
                                 method: :delete

@@ -2,17 +2,17 @@
   .form-inputs
     .row
       .col-4
-        = f.input :name, autofocus: true
+        = f.input :name, label: t(:name).capitalize, autofocus: true
     -unless object.id
       = f.simple_fields_for :product_prices do |pp|
         = pp.input :active_date, as: :hidden, input_html: { value: Time.zone.now }
         / = pp.input :product, as: :hidden, input_html: { value: object }
         .row
           .col
-            = pp.input :fiscal_stimulus, required: true
+            = pp.input :fiscal_stimulus, label: t(:fiscal_stimulus), required: true
           .col  
-            = pp.input :diminished_quote, required: true
+            = pp.input :diminished_quote, label: t(:diminished_quote), required: true
           .col  
-            = pp.input :final_price, required: true
+            = pp.input :final_price, label: t(:final_price), required: true
   .form-actions
-    = f.button :submit, 'Save', class: 'btn-primary'
+    = f.button :submit, t(:save), class: 'btn-primary'

@@ -1,4 +1,4 @@
 .card
-  .card-header = "New Order - #{@product.name}"
+  .card-header = "#{t(:neworder)} - #{@product.name}"
   .card-block
     = render partial: "order_form", locals: { object: @object, product: @product }

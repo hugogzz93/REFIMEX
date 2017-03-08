@@ -1,5 +1,5 @@
 .card
-    .card-header = klass.pluralize
+    .card-header = t("#{klass.pluralize.downcase}").capitalize
     .card-content
       - if klass != "Order"
         button.btn.btn-primary.float-right

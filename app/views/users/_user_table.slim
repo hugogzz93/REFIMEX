@@ -1,12 +1,12 @@
 table.table
   thead
     tr
-      th Name
-      th email
-      th Credentials
-      th Last Login
-      th Sign In Count
-      th Actions
+      th = t(:name).capitalize
+      th = t(:email).capitalize
+      th = t(:credentials).capitalize
+      th = t(:last_login).capitalize
+      th = t(:sign_in_count).capitalize
+      th = t(:actions).capitalize
 
   tbody
     - objects.each do |u|

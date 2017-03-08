@@ -4,9 +4,9 @@
     table.table
       thead
         tr
-          th Name
-          th Price Per Liter
-          th Order
+          th = t(:name).capitalize
+          th = t(:priceperliter)
+          th = t(:order).capitalize
       tbody
         - user.modifiers.each do |m|
           tr
@@ -14,4 +14,4 @@
             td = "$#{m.product.price_for user}"
             td
               span.badge.badge-primary 
-                = link_to 'Order', new_order_path(m.product)
+                = link_to t(:order).capitalize, new_order_path(m.product)
