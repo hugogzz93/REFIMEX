@@ -2,12 +2,12 @@ table.table
   thead
     tr
       - if current_user.admin?
-        th User
-      th Product
-      th Units
-      th Cost
-      th Date
-      th Actions
+        th = t(:user).capitalize
+      th = t(:product).capitalize
+      th = t(:units).capitalize
+      th = t(:cost).capitalize
+      th = t(:date_f).capitalize
+      th = t(:actions).capitalize
   tbody
     - objects.each do |o|
       tr
@@ -19,8 +19,8 @@ table.table
         td = o.created_at.strftime("%B %d, %Y")
         td
           span.badge.badge-primary
-            = link_to 'View', order_path(o)
+            = link_to t(:view).capitalize, order_path(o)
           - if current_user.admin?
             | /
             span.badge.badge-danger
-              = link_to 'Delete', order_path(o), method: :delete
+              = link_to t(:delete).capitalize, order_path(o), method: :delete

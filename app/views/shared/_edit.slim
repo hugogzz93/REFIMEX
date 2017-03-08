@@ -1,6 +1,6 @@
 - if object
   .card
-    .card-header = "Edit #{object.class.name}"
+    .card-header = "#{t(:edit).capitalize} #{t(object.class.name.underscore).capitalize}"
     .card-block
       = render partial: "#{object.class.name.downcase}_form", locals: { object: object }
       / = link_to 'Destroy', object, :method => :delete, :confirm => "Are you sure?",

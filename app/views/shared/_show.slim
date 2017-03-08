@@ -1,5 +1,5 @@
 .card
-  .card-header = object.class.name
+  .card-header = t(object.class.name)
   .card-block
     = render partial: "#{object.class.name.downcase}_show", locals:\
                         {object: object}

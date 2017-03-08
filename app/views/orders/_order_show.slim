@@ -6,5 +6,5 @@
           h4 = object.product.name
         .col
           = object.created_at.strftime("%B %d, %Y")
-    = f.input :units, disabled: true
-    = f.input :description, disabled: true
+    = f.input :units, label: t(:units).capitalize, disabled: true
+    = f.input :description, label: t(:description).capitalize, disabled: true

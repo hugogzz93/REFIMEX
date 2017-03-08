@@ -3,14 +3,14 @@
     .card-header = link_to p.name, edit_product_path(p)
     .card-content
       button.btn.btn-primary.float-right
-        = link_to "New Discount", new_modifier_path
+        = link_to t(:newmodifier).capitalize, new_modifier_path
       table.table
         thead
           tr
-            th Name
-            th Discount
-            th Price
-            th Actions
+            th = t(:name).capitalize
+            th = t(:discount).capitalize
+            th = t(:price).capitalize
+            th = t(:actions).capitalize
         tbody
           - p.users.each do |u|
             tr
@@ -19,7 +19,7 @@
               td = p.price_for u
               td
                 span.badge.badge-primary 
-                  = link_to 'Edit', edit_modifier_path(p.modifier_for u)
+                  = link_to t(:edit).capitalize, edit_modifier_path(p.modifier_for u)
                 | /
                 span.badge.badge-danger
-                  = link_to 'Delete', modifier_path(p.modifier_for u), method: :delete
+                  = link_to t(:delete).capitalize, modifier_path(p.modifier_for u), method: :delete

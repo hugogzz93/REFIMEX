@@ -1,9 +1,9 @@
 table.table
   thead
     tr
-      th Name
-      th Price Per Liter
-      th Actions
+      th = t(:name).capitalize
+      th = t(:priceperliter)
+      th = t(:actions).capitalize
   tbody
     - objects.each do |o|
       tr
@@ -11,7 +11,7 @@ table.table
         td = "$#{o.price}"
         td
           span.badge.badge-primary 
-            = link_to 'Edit', edit_product_path(o)
+            = link_to t(:edit).capitalize, edit_product_path(o)
           | /
           span.badge.badge-danger
-            = link_to 'Delete', product_path(o), method: :delete
+            = link_to t(:delete).capitalize, product_path(o), method: :delete
