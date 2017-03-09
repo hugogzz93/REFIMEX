@@ -22,6 +22,7 @@ es:
   orders: 'ordenes'
   order: 'orden'
   price: 'precio'
+  prices: 'precios'
   modifier: 'descuento'
   order_verb: 'ordenar'
   productprices: 'Precios'
