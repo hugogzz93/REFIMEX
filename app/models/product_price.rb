@@ -14,7 +14,7 @@ class ProductPrice < ApplicationRecord
   class << self
     def chart_datasets(objects)
       [{
-        label: 'Precio',
+        label: 'Precio/Litro',
         data: objects.map(&:price),
         backgroundColor: "rgba(81, 157, 178,0.1)",
         borderColor: "#519D9E",

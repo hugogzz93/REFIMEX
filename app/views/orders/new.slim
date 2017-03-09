@@ -5,6 +5,9 @@
 
 
 .card
-  .card-header = t(:prices).capitalize
+  .card-header 
+  	= t(:prices).capitalize
+  	span.right
+  		= "#{t(:actual_price)} $#{@product.price_for current_user}"
   .card-content
     canvas id="price_chart" height="80px"
