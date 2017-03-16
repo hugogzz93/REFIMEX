@@ -3,14 +3,12 @@ table.table
     tr
       th = t(:name).capitalize
       th = t(:max_price_per_liter)
-      th = t(:ieps).capitalize
       th = t(:actions).capitalize
   tbody
     - objects.each do |o|
       tr
         td = o.name
         td = "$#{o.price}"
-        td = "$#{o.diminished_quote}"
         td
           span.badge.badge-primary 
             = link_to t(:edit).capitalize, edit_product_path(o)

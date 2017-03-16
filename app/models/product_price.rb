@@ -19,13 +19,18 @@ class ProductPrice < ApplicationRecord
         backgroundColor: "rgba(81, 157, 178,0.1)",
         borderColor: "#519D9E",
       }, {
-        label: 'Quota Disminuida',
-        data: objects.map(&:diminished_quote),
+        label: 'Cuota IEPS Vigente',
+        data: objects.map(&:valid_quote),
         backgroundColor: "rgba(229,58,64,0.3)",
         borderColor: "#E53A40",
       }, {
-        label: 'Estímulo Fiscal',
-        data: objects.map(&:fiscal_stimulus),
+        label: 'IEPS Municipio y Estado',
+        data: objects.map(&:state_quote),
+        backgroundColor: "rgba(48,168,222,0.5)",
+        borderColor: "#30A9DE",
+      },{
+        label: 'Impuesto al Carbono',
+        data: objects.map(&:carbon_tax),
         backgroundColor: "rgba(48,168,222,0.5)",
         borderColor: "#30A9DE",
       }]

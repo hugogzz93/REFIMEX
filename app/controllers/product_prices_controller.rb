@@ -17,6 +17,10 @@ class ProductPricesController < CrudController
     @object.destroy
   end
 
+  def tax_index
+    @objects = model.order(active_date: :desc).includes(:product)
+  end
+
   private
 
   def parent_path(parent = model.last.product)

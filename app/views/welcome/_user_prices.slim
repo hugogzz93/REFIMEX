@@ -6,14 +6,12 @@
         tr
         th = t(:name).capitalize
         th = t(:max_price_per_liter)
-        th = t(:ieps).capitalize
         th = t(:actions).capitalize
       tbody
         - user.modifiers.each do |m|
           tr
             td = m.product.name
             td = "$#{m.product.price_for user}"
-            td = "$#{m.product.diminished_quote}"
             td
               span.badge.badge-primary 
                 = link_to t(:order).capitalize, new_order_path(m.product)

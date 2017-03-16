@@ -1,0 +1,8 @@
+.card
+    .card-header = t(:taxes)
+    .card-content
+      - if @objects.any?
+        = render partial: 'product_tax_table', locals: {\
+                                 objects: @objects }
+      - else
+        p.col = "No #{t(:taxes)}"

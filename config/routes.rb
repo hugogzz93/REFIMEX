@@ -7,6 +7,7 @@ Rails.application.routes.draw do
                                         as: 'new_product_price'
   post 'products/:id/prices', to: 'product_prices#create', as: 'product_price'
   delete 'product_prices/:id', to: 'product_prices#destroy', as: 'delete_product_price'
+  get 'product_price_taxes/', to: 'product_prices#tax_index', as: 'product_tax'
 
   delete '/sign_out', to: 'sessions#log_out', as: 'sign_out'
 

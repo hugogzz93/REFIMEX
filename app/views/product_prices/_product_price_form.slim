@@ -3,11 +3,13 @@
     = f.input :product_id, input_html: { value: parent.id }, as: :hidden
     .row
       .col
-        = f.input :fiscal_stimulus, label: t(:fiscal_stimulus)
+        = f.input :valid_quote, label: t(:valid_quote)
+      .col
+        = f.input :state_quote, label: t(:state_quote)
+      .col
+        = f.input :carbon_tax, label: t(:carbon_tax)
       .col
         = f.input :final_price, label: t(:final_price)
-      .col
-        = f.input :diminished_quote, label: t(:diminished_quote)
     .row
       .col
         = f.input :active_date, label: t(:active_date)

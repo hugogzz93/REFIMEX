@@ -17,8 +17,9 @@ class ProductsController < CrudController
 
   def object_params
     super.merge params.require(:product)
-                      .permit(product_prices_attributes: [:fiscal_stimulus,
-                                               :diminished_quote,
+                      .permit(product_prices_attributes: [:valid_quote,
+                                               :state_quote,
+                                               :carbon_tax,
                                                :final_price,
                                                :active_date])
   end

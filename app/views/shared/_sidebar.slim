@@ -9,4 +9,5 @@
         li = link_to t(:discounts).capitalize, root_path
       - else
         li = link_to 'Precios', root_path
+      li = link_to t(:taxes).capitalize, product_tax_path
       li = link_to t(:orders).capitalize, orders_path
