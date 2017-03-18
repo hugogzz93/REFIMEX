@@ -2,8 +2,6 @@ table.table
   thead
     tr
       th = t(:date_f).capitalize
-      th = t(:fiscal_stimulus)
-      th = t(:diminished_quote)
       th = t(:final_price)
       th = t(:actions).capitalize
 
@@ -11,8 +9,6 @@ table.table
     - objects.each do |u|
       tr
         td = u.active_date.strftime("%B %d, %Y")
-        td = u.fiscal_stimulus
-        td = u.diminished_quote
         td = u.final_price
         td 
           span.badge.badge-primary 

@@ -7,6 +7,12 @@ es:
         restrict_dependent_destroy:
           has_one: No se puede eliminar el registro porque existe un %{record} dependiente
           has_many: No se puede eliminar el registro porque existen %{record} dependientes
+  tax: 'impuestos'
+  taxes: 'impuestos'
+  ieps: 'ieps'
+  valid_quote: 'Cuota IEPS Vigente'
+  state_quote: 'IEPS Municipio y Estado'
+  carbon_tax: 'Impuesto al Carbono'
   login: 'Iniciar Sessión'
   last_login: 'Ultima Sesión'
   logout: 'Cerrar Sessión'
@@ -22,6 +28,7 @@ es:
   orders: 'ordenes'
   order: 'orden'
   price: 'precio'
+  prices: 'precios'
   modifier: 'descuento'
   order_verb: 'ordenar'
   productprices: 'Precios'
@@ -49,7 +56,9 @@ es:
   active_date: 'Fecha Activa'
   fiscal_stimulus: 'Estímulo Fiscal'
   name: 'nombre'
-  priceperliter: 'Precio por Litro'
+  actual_price: 'Precio Actual'
+  price_per_liter: 'Precio por Litro'
+  max_price_per_liter: 'Precio Maximo por Litro'
   email: 'Correo'
   password: 'Contraseña'
   password_confirmation: 'Confirmación Contraseña'

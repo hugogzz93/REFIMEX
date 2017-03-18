@@ -4,9 +4,9 @@
     table.table
       thead
         tr
-          th = t(:name).capitalize
-          th = t(:priceperliter)
-          th = t(:order).capitalize
+        th = t(:name).capitalize
+        th = t(:max_price_per_liter)
+        th = t(:actions).capitalize
       tbody
         - user.modifiers.each do |m|
           tr

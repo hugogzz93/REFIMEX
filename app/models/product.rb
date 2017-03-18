@@ -20,8 +20,16 @@ class Product < ApplicationRecord
   end
 
   def price
-      active_product_price.price
+    active_product_price.price
   end
+
+  # def fiscal_stimulus
+  #   active_product_price.fiscal_stimulus
+  # end
+
+  # def diminished_quote
+  #   active_product_price.diminished_quote
+  # end
 
   def active_product_price
     product_prices.where('active_date <= :now', now: Time.zone.now).last

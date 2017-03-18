@@ -2,3 +2,12 @@
   .card-header = "#{t(:neworder)} - #{@product.name}"
   .card-block
     = render partial: "order_form", locals: { object: @object, product: @product }
+
+
+.card
+  .card-header 
+  	= t(:prices).capitalize
+  	span.right
+  		= "#{t(:actual_price)} $#{@product.price_for current_user}"
+  .card-content
+    canvas id="price_chart" height="80px"

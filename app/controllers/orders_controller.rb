@@ -10,8 +10,11 @@ class OrdersController < CrudController
   end
 
   def new
-    @product = Product.find(params[:product_id])
     super
+    @product = Product.find(params[:product_id])
+    gon.chart_data = ProductPrice.chart_digest({product_id: @product.id},
+                                               Time.zone.now, "year")
+    gon.chart_data[:datasets].pop
   end
 
   def create
