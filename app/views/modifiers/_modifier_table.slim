@@ -19,7 +19,7 @@
               td = p.price_for u
               td
                 span.badge.badge-primary 
-                  = link_to t(:edit).capitalize, edit_modifier_path(p.modifier_for u)
+                  = link_to t(:edit).capitalize, new_modifier_path
                 | /
                 span.badge.badge-danger
                   = link_to t(:delete).capitalize, modifier_path(p.modifier_for u), method: :delete

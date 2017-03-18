@@ -16,7 +16,7 @@ class Product < ApplicationRecord
   end
 
   def modifier_for(user)
-    modifiers.find_by(user: user)
+    modifiers.where(user: user).last
   end
 
   def price
@@ -33,5 +33,9 @@ class Product < ApplicationRecord
 
   def active_product_price
     product_prices.where('active_date <= :now', now: Time.zone.now).last
+  end
+
+  def users
+    User.where(products: {id: self.id}).joins(modifiers: :product).distinct
   end
 end
