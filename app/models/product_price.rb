@@ -1,9 +1,16 @@
 class ProductPrice < ApplicationRecord
   belongs_to :product
+  validate :active_date_cannot_be_in_the_past
   include Valued
 
   def price
     final_price
+  end
+
+  def active_date_cannot_be_in_the_past
+    if active_date < Time.zone.now
+      errors.add(:active_date, "can't be in the past")
+    end
   end
 
   # Valued Interface
