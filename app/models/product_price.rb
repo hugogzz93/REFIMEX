@@ -1,16 +1,23 @@
 class ProductPrice < ApplicationRecord
   belongs_to :product
   validate :active_date_cannot_be_in_the_past
+  validates :active_date, :valid_quote, :state_quote, :carbon_tax, :final_price, 
+            presence: true
+  # validates :active_date, presence: true
+  # validates :state_quote, presence: true
+  # validates :carbon_tax,  presence: true
+  # validates :final_price, presence: true
+
   include Valued
 
-  def price
-    final_price
-  end
-
   def active_date_cannot_be_in_the_past
-    if active_date < Time.zone.now
+    if product.active_product_price && active_date < product.active_product_price.active_date
       errors.add(:active_date, "can't be in the past")
     end
+  end
+  
+  def price
+    final_price
   end
 
   # Valued Interface

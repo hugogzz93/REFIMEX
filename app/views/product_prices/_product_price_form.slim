@@ -1,17 +1,18 @@
+- previous = parent.active_product_price || ProductPrice.new
 = simple_form_for object do |f|
   .form-inputs
     = f.input :product_id, input_html: { value: parent.id }, as: :hidden
     .row
       .col
-        = f.input :valid_quote, label: t(:valid_quote)
+        = f.input :valid_quote, required: true, label: t(:valid_quote), input_html: { value: previous.valid_quote}
       .col
-        = f.input :state_quote, label: t(:state_quote)
+        = f.input :state_quote, required: true, label: t(:state_quote), input_html: { value: previous.state_quote}
       .col
-        = f.input :carbon_tax, label: t(:carbon_tax)
+        = f.input :carbon_tax, required: true, label: t(:carbon_tax), input_html: { value: previous.carbon_tax}
       .col
-        = f.input :final_price, label: t(:final_price)
+        = f.input :final_price, required: true, label: t(:final_price), input_html: { value: previous.final_price}
     .row
       .col
-        = f.input :active_date, label: t(:active_date)
+        = f.input :active_date, required: true, label: t(:active_date)
   .form-actions
     = f.button :submit, t(:save).capitalize, class: 'btn-primary'
