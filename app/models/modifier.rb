@@ -1,6 +1,7 @@
 class Modifier < ApplicationRecord
   belongs_to :user
   belongs_to :product
+  validates :user_id, :product_id, presence: true
   validate :administrators_cant_have_discounts
   include Valued
 
@@ -14,7 +15,6 @@ class Modifier < ApplicationRecord
     end
   end
 
-
   class << self
     
     def find_last_or_build_by(params)
@@ -22,10 +22,17 @@ class Modifier < ApplicationRecord
       Modifier.new(params)
     end
 
-  	def chart_datasets(objects)
+    def object_query(date, time_range, scope)
+      ProductPrice.by_date(date, time_range).where(scope)
+    end
+
+  	def chart_datasets(objects, options)
+      user = User.find(options[:user_id])
+      modifier = where(user_id: user.id).order('created_at').last
+      prod = modifier.product
   		[{
   		  label: 'Precio/Litro',
-  		  data: objects.map(&:price),
+  		  data: objects.map {|x| prod.calculate_price(user, modifier, x)},
   		  backgroundColor: "rgba(81, 157, 178,0.1)",
   		  borderColor: "#519D9E",
   		}, {
@@ -38,10 +45,10 @@ class Modifier < ApplicationRecord
   		  data: objects.map(&:state_quote),
   		  backgroundColor: "rgba(48,168,222,0.5)",
   		  borderColor: "#30A9DE",
-  		},{
+  		}, {
   		  label: 'Impuesto al Carbono',
   		  data: objects.map(&:carbon_tax),
-  		  backgroundColor: "rgba(48,168,222,0.5)",
+  		  backgroundColor: "rgba(48,168,225,0.5)",
   		  borderColor: "#30A9DE",
   		}]
   	end

@@ -13,4 +13,12 @@ class User < ApplicationRecord
   def self.credential_list
     %w(client admin)
   end
+
+  def products
+    Product.where(users: {id: self.id}).joins(modifiers: :user).distinct
+  end
+
+  def modifiers
+    Modifier.where(user_id: self.id).select('distinct on (product_id) *')
+  end
 end

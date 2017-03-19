@@ -18,7 +18,13 @@ class ProductPricesController < CrudController
   end
 
   def tax_index
-    @objects = model.order(active_date: :desc).includes(:product)
+    products = Product.all
+    @objects = products.all.collect do |x|
+      x.product_prices
+       .where('active_date <= :now', now: Time.zone.now)
+       .order('active_date')
+       .last
+    end
   end
 
   private
