@@ -1,14 +1,10 @@
 class ProductPrice < ApplicationRecord
+  include Valued
   belongs_to :product
   validate :active_date_cannot_be_in_the_past
   validates :active_date, :valid_quote, :state_quote, :carbon_tax, :final_price, 
             presence: true
-  # validates :active_date, presence: true
-  # validates :state_quote, presence: true
-  # validates :carbon_tax,  presence: true
-  # validates :final_price, presence: true
 
-  include Valued
 
   def active_date_cannot_be_in_the_past
     if product.active_product_price && active_date < product.active_product_price.active_date
@@ -26,7 +22,7 @@ class ProductPrice < ApplicationRecord
   end
 
   class << self
-    def chart_datasets(objects)
+    def chart_datasets(objects, options)
       [{
         label: 'Precio/Litro',
         data: objects.map(&:price),

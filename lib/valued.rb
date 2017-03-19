@@ -1,10 +1,10 @@
 module Valued
   module ClassMethods
-    def chart_digest(scope, date, time_range)
-      objects = by_date(date, time_range).where(scope)
+    def chart_digest(scope, options, date, time_range)
+      objects = object_query(date, time_range, scope)
       {
         labels: objects.map(&:labels_helper),
-        datasets: chart_datasets(objects)
+        datasets: chart_datasets(objects, options)
       }
     end
 
@@ -17,6 +17,10 @@ module Valued
         label: label,
         data: objects.map(&:value)
       }]
+    end
+
+    def object_query(date, time_range, scope)
+      by_date(date, time_range).where(scope)
     end
   end
 
