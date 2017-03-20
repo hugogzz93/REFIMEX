@@ -15,8 +15,12 @@ class Modifier < ApplicationRecord
     end
   end
 
+
   class << self
-    
+    def get_active_modifier_for(user, product)
+      where(user_id: user.id, product_id: product.id).order(:created_at).last
+    end
+
     def find_last_or_build_by(params)
       Modifier.where(params).order('created_at').last ||
       Modifier.new(params)
@@ -28,8 +32,8 @@ class Modifier < ApplicationRecord
 
   	def chart_datasets(objects, options)
       user = User.find(options[:user_id])
-      modifier = where(user_id: user.id).order('created_at').last
-      prod = modifier.product
+      prod = Product.find(options[:product_id])
+      modifier = get_active_modifier_for user, prod
   		[{
   		  label: 'Precio/Litro',
   		  data: objects.map {|x| prod.calculate_price(user, modifier, x)},

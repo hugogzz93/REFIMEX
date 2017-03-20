@@ -12,10 +12,12 @@ class OrdersController < CrudController
   def new
     super
     @product = Product.find(params[:product_id])
+    @prices = @product.prices_for current_user
     gon.chart_data = Modifier.chart_digest( { product_id: @product.id },
-                                            { user_id: current_user.id },
+                                            { user_id: current_user.id,
+                                              product_id: @product.id },
                                             Time.zone.now, "year"
-                                            )
+                                          )
   end
 
   def create
