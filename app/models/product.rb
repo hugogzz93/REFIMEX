@@ -27,13 +27,12 @@ class Product < ApplicationRecord
     active_product_price.price
   end
 
-  # def fiscal_stimulus
-  #   active_product_price.fiscal_stimulus
-  # end
-
-  # def diminished_quote
-  #   active_product_price.diminished_quote
-  # end
+  def prices_for(user)
+    prices = product_prices.order(active_date: :desc)
+    modifier = Modifier.get_active_modifier_for user, self
+    prices.each {|p| p.final_price = calculate_price(user, modifier, p)}
+    prices
+  end
 
   def active_product_price
     product_prices.where('active_date <= :now', now: Time.zone.now).last

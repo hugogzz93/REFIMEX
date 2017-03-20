@@ -6,7 +6,8 @@ table.table
       th = t(:state_quote)
       th = t(:carbon_tax)
       th = t(:final_price)
-      th = t(:actions).capitalize
+      - if current_user.admin?
+        th = t(:actions).capitalize
 
   tbody
     - objects.each do |u|
@@ -16,7 +17,8 @@ table.table
         td = u.state_quote
         td = u.carbon_tax
         td = u.final_price
-        td 
-          span.badge.badge-danger
-            = link_to t(:delete).capitalize, send("delete_#{u.class.name.underscore}_path", u),
-                                method: :delete
+        - if current_user.admin?
+          td 
+            span.badge.badge-danger
+              = link_to t(:delete).capitalize, send("delete_#{u.class.name.underscore}_path", u),
+                                  method: :delete

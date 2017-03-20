@@ -11,3 +11,9 @@
   		= "#{t(:actual_price)} $#{@product.price_for current_user}"
   .card-content
     canvas id="price_chart" height="80px"
+
+.card
+	.card-header
+		= t(:history)
+	.card-content
+		= render partial: 'products/product_price_table', locals: {objects: @prices}
