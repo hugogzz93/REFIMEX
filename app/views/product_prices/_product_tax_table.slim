@@ -6,12 +6,17 @@ table.table
       th = t(:state_quote)
       th = t(:carbon_tax)
       th = t(:date_f).capitalize
+      th = t(:actions).capitalize
 
   tbody
     - objects.each do |u|
-      tr
-        td = u.product.name
-        td = u.valid_quote
-        td = u.state_quote
-        td = u.carbon_tax
-        td = u.active_date.strftime("%B %d, %Y")
+      -if u
+        tr
+          td = u.product.name
+          td = u.valid_quote
+          td = u.state_quote
+          td = u.carbon_tax
+          td = u.active_date.strftime("%B %d, %Y")
+          td 
+            span.badge.badge-primary
+              = link_to t(:history), product_tax_history_path(u.product.id)

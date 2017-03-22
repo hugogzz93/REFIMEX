@@ -5,9 +5,53 @@ class ProductPrice < ApplicationRecord
   validates :active_date, :valid_quote, :state_quote, :carbon_tax, :final_price, 
             presence: true
 
+  enum change_type: [:both, :tax, :price]
+
+  before_save :set_change_type
+
+
+  def set_change_type
+    tax_change = false
+    price_change = false
+    previous_price = product.active_product_price
+    if !new_record?
+      tax_attributes.each do |f|
+        tax_change = true if self.send("#{f}_changed?")
+      end
+      price_change = true if self.final_price_changed?
+      self.change_type = determine_change_type(tax_change, price_change)
+    elsif previous_price
+      tax_attributes.each do |f|
+        tax_change = true if self.send("#{f}") != 
+                             previous_price.send("#{f}")
+      end
+      price_change = true if self.final_price != previous_price.final_price
+      self.change_type = determine_change_type(tax_change, price_change)
+    else
+      self.change_type = :both
+    end
+  end
+
+  def tax_attributes
+    ['valid_quote', 'state_quote', 'carbon_tax']
+  end
+
+  def determine_change_type(tax_change, price_change)
+    if tax_change && price_change ||
+      !tax_change && !price_change ||
+      tax_change && price? ||
+      price_change && tax? ||
+      both?
+      :both
+    elsif tax_change
+      :tax
+    else
+      :price
+    end
+  end
 
   def active_date_cannot_be_in_the_past
-    if product.active_product_price && active_date < product.active_product_price.active_date
+    if new_record? && product.active_product_price && active_date < product.active_product_price.active_date
       errors.add(:active_date, "can't be in the past")
     end
   end

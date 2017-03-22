@@ -5,8 +5,25 @@ class Product < ApplicationRecord
 
   accepts_nested_attributes_for :product_prices
 
+  def get_taxes
+  	get :tax
+  end
+
+  def get_prices
+  	get :price	
+  end
+
+  def get(change_type)
+  	product_prices.where(change_type: change_type)
+  								.or(product_prices.where(change_type: :both))
+  								.order(active_date: :desc)
+  end
+
   def price_for(user)
-      calculate_price(user, modifier_for(user), active_product_price)
+      begin
+        calculate_price(user, modifier_for(user), active_product_price)
+      rescue
+      end
   end
 
   def calculate_price(user, modifier, prod_price)

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'product_prices/:product_id/new', to: 'product_prices#new',
                                         as: 'new_product_price'
   post 'products/:id/prices', to: 'product_prices#create', as: 'product_price'
+  get 'products/:id/tax_history/', to: 'products#tax_history', as: 'product_tax_history'
   delete 'product_prices/:id', to: 'product_prices#destroy', as: 'delete_product_price'
   get 'product_price_taxes/', to: 'product_prices#tax_index', as: 'product_tax'
 

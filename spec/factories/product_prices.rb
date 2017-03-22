@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :product_price do
-    fiscal_stimulus { rand 1..10 }
-    diminished_quote { rand 1..10 }
+    valid_quote { rand 1..10 }
+    state_quote { rand 1..10 }
+    carbon_tax { rand 1..10 }
     final_price { rand 1..10 }
     active_date { Time.zone.now }
     product
