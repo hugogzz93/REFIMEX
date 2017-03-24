@@ -13,6 +13,6 @@
         = f.input :final_price, required: true, label: t(:final_price), input_html: { value: previous.final_price}
     .row
       .col
-        = f.input :active_date, required: true, label: t(:active_date)
+        = f.input :active_date, as: :date, required: true, label: t(:active_date)
   .form-actions
     = f.button :submit, t(:save).capitalize, class: 'btn-primary'

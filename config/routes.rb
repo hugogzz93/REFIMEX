@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'product_prices/:product_id/new', to: 'product_prices#new',
                                         as: 'new_product_price'
   post 'products/:id/prices', to: 'product_prices#create', as: 'product_price'
+  get 'products/:id/tax_history/', to: 'products#tax_history', as: 'product_tax_history'
   delete 'product_prices/:id', to: 'product_prices#destroy', as: 'delete_product_price'
   get 'product_price_taxes/', to: 'product_prices#tax_index', as: 'product_tax'
 
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   resources :modifiers, :products, :product_prices
   resources :orders, only: [:create, :index, :destroy, :show]
   resources :users, only: [:index, :edit, :update, :destroy]
+  resources :site_files
   devise_for :users, controllers: { registrations: 'registrations' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

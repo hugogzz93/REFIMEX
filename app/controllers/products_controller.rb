@@ -14,6 +14,10 @@ class ProductsController < CrudController
                                                Time.zone.now, "year")
   end
 
+  def tax_history
+  	@objects = @object.get_taxes
+  end
+
   private
 
   def object_params

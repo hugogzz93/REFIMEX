@@ -1,0 +1,24 @@
+.card
+	.card-header = "#{t(@object.class.downcase.to_sym)} - #{t(:tax_history)}"
+	.card-content
+		table.table
+		  thead
+		    tr
+		      th = t(:name).capitalize
+		      th = t(:valid_quote)
+		      th = t(:state_quote)
+		      th = t(:carbon_tax)
+		      th = t(:date_f).capitalize
+		      th = t(:actions).capitalize
+
+		  tbody
+		    - @objects.each do |u|
+		      tr
+		        td = u.product.name
+		        td = u.valid_quote
+		        td = u.state_quote
+		        td = u.carbon_tax
+		        td = u.active_date.strftime("%B %d, %Y")
+		        td = link_to product_tax_history_path
+
+

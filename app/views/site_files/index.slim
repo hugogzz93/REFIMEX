@@ -1,0 +1,7 @@
+.card
+	.card-header Archivos
+	.card-content
+		- if current_user.admin?
+			button.btn.btn-primary.float-right
+				= link_to 'Nuevo Archivo', new_site_file_path
+		= render partial: 'site_file_table', locals: { objects: @objects}
