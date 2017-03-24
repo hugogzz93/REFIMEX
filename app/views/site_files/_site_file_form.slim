@@ -1,0 +1,7 @@
+= simple_form_for object do |f|
+  .form-inputs
+    .row
+      .col-4
+			  = f.input :certification, as: :file
+  .form-actions
+    = f.button :submit, t(:save), class: 'btn-primary'

@@ -1,0 +1,18 @@
+table.table
+  thead
+    tr
+      th = t(:date_f).capitalize
+      th URL
+      - if current_user.admin?
+        th = t(:actions).capitalize
+
+  tbody
+    - objects.each do |u|
+      tr
+        td = u.created_at.strftime("%B %d, %Y")
+        td = link_to u.certification_file_name, u.certification.url(:original, false)
+        - if current_user.admin?
+          td 
+            span.badge.badge-danger
+              = link_to t(:delete).capitalize, site_file_path(u.id), method: :delete
+              

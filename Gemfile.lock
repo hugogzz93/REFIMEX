@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/thoughtbot/paperclip.git
+  revision: 093b4da18444d883de826f58628089c2f480d461
+  specs:
+    paperclip (5.1.0)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (~> 0.3.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -62,6 +73,9 @@ GEM
     byebug (9.0.6)
     chart-js-rails (0.1.1)
       railties (> 3.1)
+    climate_control (0.1.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -121,6 +135,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mimemagic (0.3.2)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     momentjs-rails (2.17.1)
@@ -269,6 +284,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   momentjs-rails (>= 2.9.0)
+  paperclip!
   pg
   puma (~> 3.0)
   rails (~> 5.0.1)

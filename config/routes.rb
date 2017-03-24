@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :modifiers, :products, :product_prices
   resources :orders, only: [:create, :index, :destroy, :show]
   resources :users, only: [:index, :edit, :update, :destroy]
+  resources :site_files
   devise_for :users, controllers: { registrations: 'registrations' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
