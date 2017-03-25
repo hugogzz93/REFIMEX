@@ -35,7 +35,6 @@ class Modifier < ApplicationRecord
       user = User.find(options[:user_id])
       prod = Product.find(options[:product_id])
       modifier = get_active_modifier_for user, prod
-      objects = objects.reverse
   		[{
   		  label: 'Precio/Litro',
   		  data: objects.map {|x| PriceCalculator.calculate_price(modifier, x)},
