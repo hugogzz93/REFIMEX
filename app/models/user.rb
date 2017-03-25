@@ -24,4 +24,7 @@ class User < ApplicationRecord
             .select('distinct on (product_id) *')
   end
 
+  def modifier_for(product)
+    modifiers.find_by(product_id: product.id)
+  end
 end

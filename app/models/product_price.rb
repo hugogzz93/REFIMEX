@@ -7,7 +7,7 @@ class ProductPrice < ApplicationRecord
 
   enum change_type: [:both, :tax, :price]
 
-  before_save :set_change_typee
+  before_save :set_change_type
   default_scope { order(active_date: :desc, created_at: :desc) }
 
 

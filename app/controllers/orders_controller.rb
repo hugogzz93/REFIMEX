@@ -21,7 +21,7 @@ class OrdersController < CrudController
   end
 
   def create
-    if model.create object_params.merge(user_id: current_user.id)
+    if model.register_order object_params.merge(user_id: current_user.id)
       redirect_to collection_path
     else
       render :new

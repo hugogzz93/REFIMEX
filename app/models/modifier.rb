@@ -1,3 +1,4 @@
+require 'PriceCalculator'
 class Modifier < ApplicationRecord
   include Valued
   belongs_to :user
@@ -34,9 +35,10 @@ class Modifier < ApplicationRecord
       user = User.find(options[:user_id])
       prod = Product.find(options[:product_id])
       modifier = get_active_modifier_for user, prod
+      objects = objects.reverse
   		[{
   		  label: 'Precio/Litro',
-  		  data: objects.map {|x| prod.calculate_price(user, modifier, x)},
+  		  data: objects.map {|x| PriceCalculator.calculate_price(modifier, x)},
   		  backgroundColor: "rgba(81, 157, 178,0.1)",
   		  borderColor: "#519D9E",
   		}, {
