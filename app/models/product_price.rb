@@ -68,7 +68,6 @@ class ProductPrice < ApplicationRecord
 
   class << self
     def chart_datasets(objects, options)
-      objects = objects.reverse
       [{
         label: 'Precio/Litro',
         data: objects.map(&:price),
