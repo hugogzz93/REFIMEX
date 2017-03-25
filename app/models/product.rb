@@ -1,3 +1,4 @@
+require 'PriceCalculator'
 class Product < ApplicationRecord
   has_many :modifiers, dependent: :destroy
   has_many :users, through: :modifiers
@@ -20,14 +21,8 @@ class Product < ApplicationRecord
   end
 
   def price_for(user)
-      begin
-        calculate_price(user, modifier_for(user), active_product_price)
-      rescue
-      end
-  end
-
-  def calculate_price(user, modifier, prod_price)
-    (prod_price.price - modifier.ammount.to_f).round 2
+    PriceCalculator.calculate_price(modifier_for(user),
+                                    active_product_price)
   end
 
   def discount_for(user)
@@ -37,22 +32,28 @@ class Product < ApplicationRecord
   end
 
   def modifier_for(user)
-    modifiers.where(user: user).last
+    user.modifiers.find_by(product_id: self.id)
   end
 
   def price
-    active_product_price.price
+    begin
+      active_product_price.price
+    rescue
+    end
   end
 
   def prices_for(user)
-    prices = product_prices.order(active_date: :desc)
-    modifier = Modifier.get_active_modifier_for user, self
-    prices.each {|p| p.final_price = calculate_price(user, modifier, p)}
+    prices = product_prices
+    modifier = user.modifier_for self
+    prices.each {|p| p.final_price = PriceCalculator.calculate_price(modifier,
+                                                                     p)}
     prices
   end
 
   def active_product_price
-    product_prices.where('active_date <= :now', now: Time.zone.now).last
+    product_prices.where('active_date <= :now', now: Time.zone.now)
+                  .order(active_date: :desc, created_at: :desc)
+                  .first
   end
 
   def users

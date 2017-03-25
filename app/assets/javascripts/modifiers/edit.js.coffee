@@ -1,5 +1,5 @@
-$(document).on "turbolinks:load", ->
-  $('select').selectize();
+$(document).on 'modifiers#edit:loaded', ->
+  # $('select').selectize();
 
   $('form.edit_modifier select').on 'change', () ->
     uid = $('#modifier_user_id').val()

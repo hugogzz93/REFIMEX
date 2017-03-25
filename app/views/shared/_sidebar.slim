@@ -11,8 +11,18 @@
         li = link_to 'Precios', root_path
       li = link_to t(:taxes).capitalize, product_tax_path
       li = link_to 'Ordenes/Pedidos', orders_path
+      hr
       li = link_to 'Certificaciones', site_files_path
       li
         a href="http://www.gob.mx/cre/articulos/precios-maximos-vigentes-de-los-combustibles?idiom=es"
           | Precios Vigentes Gobierno
 
+/ .row
+/   .card.sidebar
+/     .card-header Externos
+/     .card-block
+/       ul
+/         li = link_to 'Certificaciones', site_files_path
+/         li
+/           a href="http://www.gob.mx/cre/articulos/precios-maximos-vigentes-de-los-combustibles?idiom=es"
+/             | Precios Vigentes Gobierno
