@@ -14,6 +14,7 @@
 //= require tether
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require jquery-ui/datepicker
 //= require turbolinks
 //= require sweetalert.min.js
 //= require list.js
@@ -21,7 +22,6 @@
 //= require moment
 //= require Chart
 //= require bootstrap-datetimepicker
-//= require jquery-ui/jquery-ui.min.js
 //= require_tree ./products
 // = require_tree .
 

@@ -17,7 +17,9 @@
 @import "./*";
 @import "products/*";
 @import "sweetalert";
-@import "jquery-ui/jquery-ui.min.css";
+@import "jquery-ui/core";
+@import "jquery-ui/datepicker";
+@import "jquery-ui/theme";
 
 body {
   font-family: $font-family-sans-serif;
