@@ -8,6 +8,7 @@ class ProductPrice < ApplicationRecord
   enum change_type: [:both, :tax, :price]
 
   before_save :set_change_type
+  default_scope { order(active_date: :desc, created_at: :desc) }
 
 
   def set_change_type
@@ -67,6 +68,7 @@ class ProductPrice < ApplicationRecord
 
   class << self
     def chart_datasets(objects, options)
+      objects = objects.reverse
       [{
         label: 'Precio/Litro',
         data: objects.map(&:price),

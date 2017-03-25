@@ -21,6 +21,7 @@
 //= require moment
 //= require Chart
 //= require bootstrap-datetimepicker
+//= require jquery-ui/jquery-ui.min.js
 //= require_tree ./products
 // = require_tree .
 
