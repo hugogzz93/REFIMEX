@@ -19,6 +19,9 @@ class User < ApplicationRecord
   end
 
   def modifiers
-    Modifier.where(user_id: self.id).select('distinct on (product_id) *')
+    Modifier.where(user_id: self.id)
+            .order(:product_id, created_at: :desc)
+            .select('distinct on (product_id) *')
   end
+
 end

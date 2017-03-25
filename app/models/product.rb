@@ -37,7 +37,7 @@ class Product < ApplicationRecord
   end
 
   def modifier_for(user)
-    modifiers.where(user: user).last
+    user.modifiers.find_by(product_id: self.id)
   end
 
   def price
