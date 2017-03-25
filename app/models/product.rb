@@ -55,7 +55,9 @@ class Product < ApplicationRecord
   end
 
   def active_product_price
-    product_prices.where('active_date <= :now', now: Time.zone.now).last
+    product_prices.where('active_date <= :now', now: Time.zone.now)
+                  .order(active_date: :desc, created_at: :desc)
+                  .first
   end
 
   def users

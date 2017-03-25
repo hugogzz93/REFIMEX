@@ -1,9 +1,9 @@
 class Modifier < ApplicationRecord
+  include Valued
   belongs_to :user
   belongs_to :product
   validates :user_id, :product_id, presence: true
   validate :administrators_cant_have_discounts
-  include Valued
 
   def price
     product.price user

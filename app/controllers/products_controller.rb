@@ -8,7 +8,7 @@ class ProductsController < CrudController
   def edit
     super
     @users = User.all
-    @product_prices = @object.product_prices.order(active_date: :desc)
+    @product_prices = @object.product_prices
     gon.chart_data = ProductPrice.chart_digest({product_id: @object.id},
                                                {},
                                                Time.zone.now, "year")
