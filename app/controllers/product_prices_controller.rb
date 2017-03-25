@@ -5,6 +5,8 @@ class ProductPricesController < CrudController
   end
 
   def create
+    params[:product_price][:active_date] = params[:product_price][:active_date]
+                                          .to_time
     if model.create object_params
       redirect_to parent_path
     else
