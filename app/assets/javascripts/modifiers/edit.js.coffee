@@ -1,5 +1,5 @@
 $(document).on 'modifiers#edit:loaded', ->
-  $('select').selectize();
+  # $('select').selectize();
 
   $('form.edit_modifier select').on 'change', () ->
     uid = $('#modifier_user_id').val()
