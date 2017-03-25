@@ -1,4 +1,4 @@
-$(document).on "turbolinks:load", ->
+$(document).on 'modifiers#new:loaded', ->
   $('select').selectize();
 
   $('#new_modifier select').on 'change', () ->

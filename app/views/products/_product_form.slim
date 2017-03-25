@@ -6,7 +6,6 @@
     -unless object.id
       = f.simple_fields_for :product_prices do |pp|
         = pp.input :active_date, as: :hidden, input_html: { value: Time.zone.now }
-        / = pp.input :product, as: :hidden, input_html: { value: object }
         .row
           .col
             = pp.input :valid_quote, label: t(:valid_quote), required: true

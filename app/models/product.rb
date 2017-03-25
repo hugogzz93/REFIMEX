@@ -41,7 +41,10 @@ class Product < ApplicationRecord
   end
 
   def price
-    active_product_price.price
+    begin
+      active_product_price.price
+    rescue
+    end
   end
 
   def prices_for(user)
