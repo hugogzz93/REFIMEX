@@ -42,6 +42,13 @@ class Product < ApplicationRecord
     end
   end
 
+  def find_or_created_modifier_for(user)
+    modifier = Modifier.order('created_at desc')
+                       .where(product_id: self.id, user_id: user.id)
+                       .first
+    modifier ||= self.modifiers.create user_id: user.id
+  end
+
   def prices_for(user)
     prices = product_prices
     modifier = user.modifier_for self
