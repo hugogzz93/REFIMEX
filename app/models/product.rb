@@ -42,7 +42,7 @@ class Product < ApplicationRecord
     end
   end
 
-  def find_or_created_modifier_for(user)
+  def find_or_create_modifier_for(user)
     modifier = Modifier.order('created_at desc')
                        .where(product_id: self.id, user_id: user.id)
                        .first
