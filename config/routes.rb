@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'welcome#frontpage'
+
+  get 'welcome/index', to: 'welcome#index', as: 'welcome_index'
 
   get '/modifiers/find', to: 'modifiers#find', as: 'find_modifier'
   get '/orders/:product_id/new', to: 'orders#new', as: 'new_order'

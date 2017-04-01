@@ -1,0 +1,146 @@
+body#page-top
+  nav#mainNav.navbar.navbar-default.navbar-fixed-top
+    .container-fluid
+      /! Brand and toggle get grouped for better mobile display
+      .navbar-header
+        button.navbar-toggle.collapsed data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
+          span.sr-only Toggle navigation
+          | Menu
+          i.fa.fa-bars
+        a.navbar-brand.page-scroll href="#page-top"  Start Bootstrap
+      /! Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li
+          = link_to('Log In', welcome_index_path, class: 'page-scroll')
+          li
+            a.page-scroll href="#services"  Services
+          li
+            a.page-scroll href="#portfolio"  Portfolio
+          li
+            a.page-scroll href="#contact"  Contact
+      /! /.navbar-collapse
+    /! /.container-fluid
+  header
+    .header-content
+      .header-content-inner
+        h1#homeHeading Your Favorite Source of Free Bootstrap Themes
+        hr/
+        p Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!
+        a.btn.btn-primary.btn-xl.page-scroll href="#about"  Find Out More
+  section#about.bg-primary
+    .container
+      .row
+        .col-8.offset-2.text-center
+          h2.section-heading We've got what you need!
+          hr.light/
+          p.text-faded Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!
+          a.page-scroll.btn.btn-default.btn-xl.sr-button href="#services"  Get Started!
+  section#services
+    .container
+      .row
+        .col-lg-12.text-center
+          h2.section-heading At Your Service
+          hr.primary/
+    .container
+      .row
+        .col-lg-3.col-md-6.text-center
+          .service-box
+            i.fa.fa-4x.fa-diamond.text-primary.sr-icons
+            h3 Sturdy Templates
+            p.text-muted Our templates are updated regularly so they don't break.
+        .col-lg-3.col-md-6.text-center
+          .service-box
+            i.fa.fa-4x.fa-paper-plane.text-primary.sr-icons
+            h3 Ready to Ship
+            p.text-muted You can use this theme as is, or you can make changes!
+        .col-lg-3.col-md-6.text-center
+          .service-box
+            i.fa.fa-4x.fa-newspaper-o.text-primary.sr-icons
+            h3 Up to Date
+            p.text-muted We update dependencies to keep things fresh.
+        .col-lg-3.col-md-6.text-center
+          .service-box
+            i.fa.fa-4x.fa-heart.text-primary.sr-icons
+            h3 Made with Love
+            p.text-muted You have to make your websites with love these days!
+  section#portfolio.no-padding
+    .container-fluid
+      .row.no-gutter.popup-gallery
+        .col-lg-4.col-sm-6
+          a.portfolio-box href="img/portfolio/fullsize/1.jpg" 
+            = image_tag("img/portfolio/thumbnails/1.jpg", class: "img-responsive")
+            .portfolio-box-caption
+              .portfolio-box-caption-content
+                .project-category.text-faded
+                  | Category
+                .project-name
+                  | Project Name
+        .col-lg-4.col-sm-6
+          a.portfolio-box href="img/portfolio/fullsize/2.jpg" 
+            = image_tag("img/portfolio/thumbnails/2.jpg", class: "img-responsive")
+            .portfolio-box-caption
+              .portfolio-box-caption-content
+                .project-category.text-faded
+                  | Category
+                .project-name
+                  | Project Name
+        .col-lg-4.col-sm-6
+          a.portfolio-box href="img/portfolio/fullsize/3.jpg" 
+            = image_tag("img/portfolio/thumbnails/3.jpg", class: "img-responsive")
+            .portfolio-box-caption
+              .portfolio-box-caption-content
+                .project-category.text-faded
+                  | Category
+                .project-name
+                  | Project Name
+        .col-lg-4.col-sm-6
+          a.portfolio-box href="img/portfolio/fullsize/4.jpg" 
+            = image_tag("img/portfolio/thumbnails/4.jpg", class: "img-responsive")
+            .portfolio-box-caption
+              .portfolio-box-caption-content
+                .project-category.text-faded
+                  | Category
+                .project-name
+                  | Project Name
+        .col-lg-4.col-sm-6
+          a.portfolio-box href="img/portfolio/fullsize/5.jpg" 
+            = image_tag("img/portfolio/thumbnails/5.jpg", class: "img-responsive")
+            .portfolio-box-caption
+              .portfolio-box-caption-content
+                .project-category.text-faded
+                  | Category
+                .project-name
+                  | Project Name
+
+        .col-lg-4.col-sm-6
+          a.portfolio-box href="img/portfolio/fullsize/6.jpg" 
+            = image_tag("img/portfolio/thumbnails/6.jpg", class: "img-responsive")
+            .portfolio-box-caption
+              .portfolio-box-caption-content
+                .project-category.text-faded
+                  | Category
+                .project-name
+                  | Project Name
+  aside.bg-dark
+    .container.text-center
+      .call-to-action
+        h2 Free Download at Start Bootstrap!
+        a.btn.btn-default.btn-xl.sr-button href="http://startbootstrap.com/template-overviews/creative/"  Download Now!
+  section#contact
+    .container
+      .row
+        .col-lg-8.offset-2.text-center
+          h2.section-heading Let's Get In Touch!
+          hr.primary/
+          p Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!
+        .col-lg-4.offset-2.text-center
+          i.fa.fa-phone.fa-3x.sr-contact
+          p 01 81 8381 0558
+        .col-lg-4.text-center
+          i.fa.fa-envelope-o.fa-3x.sr-contact
+          p
+            a href="mailto:Refinados@prodigy.net.mx"  Refinados@prodigy.net.mx
+  iframe allowfullscreen="" frameborder="0" height="450" width="100%" position="absolute" top="0px" left="0px" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC5JrlYh9nBR2BB7disDobPVZFzFLP_YjA&q=Refinados+Mexicanos,Monterrey+NL" style="border:0" 
+
+  / src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC5JrlYh9nBR2BB7disDobPVZFzFLP_YjA&q=Refinados+Mexicanos,Monterrey+NL"
