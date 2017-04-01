@@ -6,6 +6,11 @@
 @import "font-awesome";
 
 // Global Components
+#frontpage {
+  
+  height: 100%;
+  width: 100%;
+
   .affix {
     position: fixed !important;
     top: 1rem;
@@ -26,7 +31,6 @@
       height: auto;
   }
 
-  html,
   body {
     height: 100%;
     width: 100%;
@@ -387,3 +391,4 @@
   body {
     webkit-tap-highlight-color: $gray-darker;
   }  
+}
