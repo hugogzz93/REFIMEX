@@ -11,10 +11,22 @@
   height: 100%;
   width: 100%;
 
+
+  #log_in_nav {
+    max-width: 3em;
+    float: right;
+    display: block;
+    color: #c4c2c1;
+  }
+
   .affix {
     position: fixed !important;
-    top: 1rem;
+    top: 0px;
     z-index: 99;
+
+    #log_in_nav {
+      color: $theme-primary;
+    }
   }
 
   .affix-bottom {
@@ -30,6 +42,12 @@
       max-width: 100%;
       height: auto;
   }
+
+  // img.img-responsive {
+  //   max-width: 426px;
+  //   max-height: 239px;
+  //   object-fit: cover;
+  // }
 
   body {
     height: 100%;
@@ -105,8 +123,11 @@
   // Navigation
 
   .navbar-default {
-    position: sticky;
-    border-color: rgba(34, 34, 34, 0.05);
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    border-bottom: 1px solid rgba(255,255,255,.3);
     // border-color: fade_in($gray-darker, 0.5);
     @include sans-serif-font();
     @include transition-all();
@@ -152,7 +173,7 @@
     }
     @media (min-width: 768px) {
       background-color: transparent;
-      border-color: fade_in(white, 0.30);
+      border-bottom: 1px solid rgba(255,255,255,.3);
       .navbar-header .navbar-brand {
         color: fade_in(white, 0.70);
         &:hover,
@@ -169,7 +190,7 @@
       }
       &.affix {
         background-color: white;
-        border-color: fade_in($gray-darker, 0.5);
+        border-color: #e7e7e7;
         .navbar-header .navbar-brand {
           color: $theme-primary;
           font-size: 14px;
@@ -197,7 +218,7 @@
     min-height: auto;
     @include background-cover();
     background-position: center;
-    background-image: url('img/header.jpg');
+    background-image: url('img/green_overview.jpg');
     text-align: center;
     color: white;
     .header-content {
