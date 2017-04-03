@@ -19,6 +19,8 @@ gem 'i18n-inflector-rails'
 
 gem 'chart-js-rails'
 
+gem 'font-awesome-sass'
+
 # file upload
 gem 'paperclip', github: 'thoughtbot/paperclip'
 
