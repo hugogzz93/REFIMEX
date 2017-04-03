@@ -13,6 +13,8 @@ class OrdersController < CrudController
     super
     @product = Product.find(params[:product_id])
     @prices = @product.prices_for current_user
+    @pp = @product.active_product_price
+    gon.pp = @pp
     gon.chart_data = Modifier.chart_digest( { product_id: @product.id },
                                             { user_id: current_user.id,
                                               product_id: @product.id },

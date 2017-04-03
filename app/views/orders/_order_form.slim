@@ -1,7 +1,31 @@
 = simple_form_for object do |f|
   .form-inputs
     = f.input :product_id, input_html: { value: product.id }, as: :hidden
-    = f.input :units, label: t(:units).capitalize, autofocus: true
-    = f.input :description, label: t(:description).capitalize
+    .row
+      .col-4
+  	    = f.input :units, label: t(:units).capitalize, autofocus: true
+  	  .col-12
+  	    = f.input :description, label: t(:description).capitalize
+	table.table
+		thead
+			tr
+				th = t(:price).capitalize
+				th = t(:valid_quote).capitalize
+				th = t(:state_quote).capitalize
+				th = t(:carbon_tax).capitalize
+		tbody
+			tr
+				td = @pp.price
+				td = @pp.valid_quote
+				td = @pp.state_quote
+				td = @pp.carbon_tax
+			tr
+				td
+				td
+				td
+					strong Total:
+				td
+					strong#total_price $0.0
   .form-actions
     = f.button :submit, t(:save).capitalize, class: 'btn-primary'
+
