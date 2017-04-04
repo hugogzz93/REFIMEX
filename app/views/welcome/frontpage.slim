@@ -3,7 +3,7 @@ nav#mainNav.navbar.navbar-default.navbar-fixed-top
     a.navbar-brand.page-scroll href="#page-top"  Refimex
     ul.nav.navbar-nav.navbar-right#log_in_nav
       li
-        = link_to('Iniciar Sesión', welcome_index_path, class: 'page-scroll')
+        = link_to('Iniciar', welcome_index_path, class: 'page-scroll')
     /! /.navbar-collapse
   /! /.container-fluid
 header
@@ -51,64 +51,7 @@ section#services
           i.fa.fa-4x.fa-heart.text-primary.sr-icons
           h3 Solidaridad
           p.text-muted Trabajar en conjunto con nuestros colaboradores para dar el mejor servicio.
-section#portfolio.no-padding
-  .container-fluid
-    .row.no-gutter.popup-gallery
-      .col-lg-4.col-sm-6
-        a.portfolio-box href="#" 
-          = image_tag("img/thumb/fueling", class: "img-responsive", size: "650x350")
-          .portfolio-box-caption
-            .portfolio-box-caption-content
-              .project-category.text-faded
-                | Category
-              .project-name
-                | Project Name
-      .col-lg-4.col-sm-6
-        a.portfolio-box href="img/portfolio/fullsize/2.jpg" 
-          = image_tag("img/thumb/refmex_logo", class: "img-responsive", size: "650x350")
-          .portfolio-box-caption
-            .portfolio-box-caption-content
-              .project-category.text-faded
-                | Category
-              .project-name
-                | Project Name
-      .col-lg-4.col-sm-6
-        a.portfolio-box href="img/portfolio/fullsize/3.jpg" 
-          = image_tag("img/thumb/tubes", class: "img-responsive", size: "650x350")
-          .portfolio-box-caption
-            .portfolio-box-caption-content
-              .project-category.text-faded
-                | Category
-              .project-name
-                | Project Name
-      .col-lg-4.col-sm-6
-        a.portfolio-box href="img/portfolio/fullsize/4.jpg" 
-          = image_tag("img/thumb/fuel_truck", class: "img-responsive", size: "650x350")
-          .portfolio-box-caption
-            .portfolio-box-caption-content
-              .project-category.text-faded
-                | Category
-              .project-name
-                | Project Name
-      .col-lg-4.col-sm-6
-        a.portfolio-box href="img/portfolio/fullsize/5.jpg" 
-          = image_tag("img/thumb/trucks", class: "img-responsive", size: "650x350")
-          .portfolio-box-caption
-            .portfolio-box-caption-content
-              .project-category.text-faded
-                | Category
-              .project-name
-                | Project Name
 
-      .col-lg-4.col-sm-6
-        a.portfolio-box href="img/portfolio/fullsize/6.jpg" 
-          = image_tag("img/thumb/blue_truck", class: "img-responsive", size: "650x350")
-          .portfolio-box-caption
-            .portfolio-box-caption-content
-              .project-category.text-faded
-                | Category
-              .project-name
-                | Project Name
 aside.bg-dark
   .container.text-center
     .call-to-action
