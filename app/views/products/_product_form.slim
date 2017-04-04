@@ -7,13 +7,13 @@
       = f.simple_fields_for :product_prices do |pp|
         = pp.input :active_date, as: :hidden, input_html: { value: Time.zone.now }
         .row
+          .col  
+            = pp.input :final_price, label: t(:final_price), required: true
           .col
             = pp.input :valid_quote, label: t(:valid_quote), required: true
           .col  
             = pp.input :state_quote, label: t(:state_quote), required: true
           .col  
             = pp.input :carbon_tax, label: t(:carbon_tax), required: true
-          .col  
-            = pp.input :final_price, label: t(:final_price), required: true
   .form-actions
     = f.button :submit, t(:save), class: 'btn-primary'

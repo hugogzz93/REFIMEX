@@ -218,7 +218,7 @@
     min-height: auto;
     @include background-cover();
     background-position: center;
-    background-image: url('img/green_overview.jpg');
+    background-image: image-url('img/green_overview.jpg');
     text-align: center;
     color: white;
     .header-content {

@@ -8,7 +8,7 @@
         li = link_to t(:users).capitalize, users_path
         li = link_to t(:discounts).capitalize, welcome_index_path
       - else
-        li = link_to 'Precios', root_path
+        li = link_to 'Precios', welcome_index_path
       li = link_to t(:taxes).capitalize, product_tax_path
       li = link_to 'Ordenes/Pedidos', orders_path
       hr

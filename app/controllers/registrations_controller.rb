@@ -5,7 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     if user_signed_in? && current_user.admin?
       if User.create user_admin_params
-        redirect_to root_path
+        redirect_to welcome_index_path
       else
         render :new
       end
