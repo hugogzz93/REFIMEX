@@ -1,0 +1,25 @@
+doctype html
+html#frontpage
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    
+  body
+    h1 = "#{@user.email} has created an order"
+    p
+      table
+        thead
+          tr
+            th Producto
+            th Unidades
+            th Precio
+            th Fecha Creación
+        tbody
+          tr
+            td = @order.product.name
+            td = @order.units
+            td = "$#{@order.total_cost}"
+            td = @order.created_at.strftime("%B %d, %Y")
+  h3 Descripción
+  p = @order.description
+
+

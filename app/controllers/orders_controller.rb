@@ -24,6 +24,7 @@ class OrdersController < CrudController
 
   def create
     if model.register_order object_params.merge(user_id: current_user.id)
+      ApplicationMailer.order_request(Order.last, current_user).deliver_later
       redirect_to collection_path
     else
       render :new
