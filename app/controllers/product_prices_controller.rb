@@ -32,7 +32,6 @@ class ProductPricesController < CrudController
   private
 
   def parent_path(parent = model.all.order('created_at').last.product)
-    debugger
     edit_product_path parent
   end
 end

@@ -8,7 +8,7 @@ class ModifiersController < CrudController
   # def update
   #   object = model.find params[:modifier][:id]
   #   if object.update object_params
-  #     redirect_to modifiers_path
+  #     redirect_to collection_path
   #   else
   #     render :edit
   #   end
@@ -20,7 +20,7 @@ class ModifiersController < CrudController
   end
 
   def destroy
-    redirect_to modifiers_path
+    redirect_to collection_path
     @object.destroy
   end
 
@@ -35,6 +35,6 @@ class ModifiersController < CrudController
   end
 
   def collection_path
-    modifiers_path
+    welcome_index_path
   end
 end
