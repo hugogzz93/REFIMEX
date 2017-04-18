@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   belongs_to :product
 
   def total_cost
-    PriceCalculator.calculate_cost(self.price, self.discount, units)
+    PriceCalculator.calculate_discounted_cost(self.price, units)
   end
 
   def set_price_state(product_price, modifier)

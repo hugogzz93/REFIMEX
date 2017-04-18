@@ -3,6 +3,7 @@ class OrdersController < CrudController
     @objects = current_user.admin? ? Order.all : current_user
       .orders
       .includes([:product, :user])
+      .order(created_at: :desc)
   end
 
   def show
