@@ -15,7 +15,7 @@
 				th = t(:carbon_tax).capitalize
 		tbody
 			tr
-				td = @pp.price
+				td = @product.price_for(current_user)
 				td = @pp.valid_quote
 				td = @pp.state_quote
 				td = @pp.carbon_tax

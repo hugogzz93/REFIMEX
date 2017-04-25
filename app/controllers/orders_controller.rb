@@ -1,6 +1,6 @@
 class OrdersController < CrudController
   def index
-    @objects = current_user.admin? ? Order.all : current_user
+    @objects = current_user.admin? ? Order.all.order(created_at: :desc) : current_user
       .orders
       .includes([:product, :user])
       .order(created_at: :desc)
@@ -16,6 +16,7 @@ class OrdersController < CrudController
     @prices = @product.prices_for current_user
     @pp = @product.active_product_price
     gon.pp = @pp
+    gon.discount = current_user.modifier_for(@product)
     gon.chart_data = Modifier.chart_digest( { product_id: @product.id },
                                             { user_id: current_user.id,
                                               product_id: @product.id },

@@ -33,6 +33,11 @@ class ProductPrice < ApplicationRecord
     end
   end
 
+  def discounted_for(user)
+    price = product.price_for(user)
+    return self
+  end
+
   def tax_attributes
     ['valid_quote', 'state_quote', 'carbon_tax']
   end
