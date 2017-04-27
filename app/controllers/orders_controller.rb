@@ -29,7 +29,7 @@ class OrdersController < CrudController
       ApplicationMailer.order_request(Order.last, current_user).deliver_later
       redirect_to collection_path
     else
-      render :new
+      redirect_to collection_path
     end
   end
 end

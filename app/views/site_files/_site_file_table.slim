@@ -14,5 +14,5 @@ table.table
         - if current_user.admin?
           td 
             span.badge.badge-danger
-              = link_to t(:delete).capitalize, site_file_path(u.id), method: :delete
+              = link_to t(:delete).capitalize, site_file_path(u.id), method: :delete, data: {confirm: "Seguro?"}
               

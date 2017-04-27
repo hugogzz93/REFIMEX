@@ -61,6 +61,10 @@
     }
   }
 
+  input.invalid {
+    border-color: red;
+  }
+
 
   .discrete_input {
     border:none;

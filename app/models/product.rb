@@ -42,6 +42,12 @@ class Product < ApplicationRecord
     end
   end
 
+  def price_updated?
+    product_prices
+          .where(active_date: Time.zone.now.method("beginning_of_day").call..
+                              Time.zone.now.method("end_of_day").call).any?
+  end
+
   def find_or_create_modifier_for(user)
     modifier = Modifier.order('created_at desc')
                        .where(product_id: self.id, user_id: user.id)

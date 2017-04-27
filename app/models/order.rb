@@ -2,6 +2,11 @@ require 'PriceCalculator'
 class Order < ApplicationRecord
   belongs_to :user
   belongs_to :product
+  validate :positive_unit_count
+
+  def positive_unit_count
+    errors.add :units, "Unit count must be positive." unless units > 0
+  end
 
   def total_cost
     PriceCalculator.calculate_discounted_cost(self.price, units)

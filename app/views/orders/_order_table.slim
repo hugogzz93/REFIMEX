@@ -23,4 +23,5 @@ table.table
           - if current_user.admin?
             | /
             span.badge.badge-danger
-              = link_to t(:delete).capitalize, order_path(o), method: :delete
+              = link_to t(:delete).capitalize, order_path(o), method: :delete,
+              data: {confirm: "Seguro?"}

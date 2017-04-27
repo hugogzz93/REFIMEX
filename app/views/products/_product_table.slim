@@ -2,7 +2,7 @@ table.table
   thead
     tr
       th = t(:name).capitalize
-      th = t(:max_price_per_liter)
+      th = current_user.admin? ? t(:max_price_per_liter) : t(:price_per_liter)
       th = t(:actions).capitalize
   tbody
     - objects.each do |o|
@@ -14,4 +14,5 @@ table.table
             = link_to t(:edit).capitalize, edit_product_path(o)
           | /
           span.badge.badge-danger
-            = link_to t(:delete).capitalize, product_path(o), method: :delete
+            = link_to t(:delete).capitalize, product_path(o), method: :delete,
+            data: {confirm: "Seguro?"}

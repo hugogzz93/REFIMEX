@@ -5,7 +5,7 @@
       thead
         tr
         th = t(:name).capitalize
-        th = t(:max_price_per_liter)
+        th = current_user.admin? ? t(:max_price_per_liter) : t(:price_per_liter)
         th = t(:actions).capitalize
       tbody
         - Product.all.each do |p|

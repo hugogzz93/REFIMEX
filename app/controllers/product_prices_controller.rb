@@ -25,7 +25,7 @@ class ProductPricesController < CrudController
       x.product_prices
        .where('active_date <= :now', now: Time.zone.now)
        .order('active_date')
-       .last
+       .first
     end
   end
 

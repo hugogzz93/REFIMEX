@@ -16,4 +16,4 @@ table.table
           | /
           span.badge.badge-danger
             = link_to t(:delete).capitalize, send("#{u.class.name.underscore}_path", u),
-                                method: :delete
+                                method: :delete, data: {confirm: "Seguro?"}

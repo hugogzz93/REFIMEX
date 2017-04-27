@@ -3,7 +3,8 @@
     = f.input :product_id, input_html: { value: product.id }, as: :hidden
     .row
       .col-4
-  	    = f.input :units, label: t(:units).capitalize, autofocus: true
+  	    = f.input :units, label: t(:units).capitalize, autofocus: true, input_html:\
+  	    { min: 1, step: 1 }
   	  .col-12
   	    = f.input :description, label: t(:description).capitalize
 	table.table
