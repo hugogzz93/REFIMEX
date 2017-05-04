@@ -4,22 +4,23 @@ html#frontpage
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
     
   body
-    h1 = "#{@user.email} has created an order"
+    h5 = "#{@user.email} creó una orden"
     p
       table
-        thead
-          tr
-            th Producto
-            th Unidades
-            th Precio
-            th Fecha Creación
         tbody
           tr
+            th Producto
             td = @order.product.name
+          tr
+            th Unidades
             td = @order.units
+          tr
+            th Precio
             td = "$#{@order.total_cost}"
+          tr
+            th Fecha Creación
             td = @order.created_at.strftime("%B %d, %Y")
-  h3 Description
+  h3 Descripción
   p = @order.description
 
 
