@@ -10,6 +10,6 @@ class OrderMailer < ApplicationMailer
 	def order_request(order, user)
 		@order = order
 		@user = user
-		mail(to: User.admin.first.email, subject: 'Order Request')
+		mail(to: 'refinados@prodigy.net.mx', subject: 'Order Request')
 	end
 end

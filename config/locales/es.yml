@@ -44,7 +44,7 @@ es:
   nomodifiers: 'Sin descuentos registrados'
   noorders: 'Sin ordenes registradas'
   save: 'Grabar'
-  units: 'unidades'
+  units: 'litros'
   description: 'descripción'
   cost: 'costo'
   date_f: 'fecha'
