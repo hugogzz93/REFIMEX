@@ -3,7 +3,6 @@ nav#mainNav.navbar.navbar-default.navbar-fixed-top
     a.navbar-brand.page-scroll href="#page-top"  Refimex
     ul.nav.navbar-nav.navbar-right#log_in_nav
       li
-        = link_to('Iniciar', welcome_index_path, class: 'page-scroll')
     /! /.navbar-collapse
   /! /.container-fluid
 header
@@ -12,7 +11,7 @@ header
       h1#homeHeading Refinados Mexicanos
       hr/
       p Buscar siempre las mejores opciones para nuestros clientes y proveedores
-      = link_to 'Registrar', new_user_registration_path, class: 'btn btn-primary btn-xl page-scroll'
+      = link_to('Iniciar', welcome_index_path, class: 'btn btn-primary btn-xl page-scroll')
       
       
 section#about.bg-primary
