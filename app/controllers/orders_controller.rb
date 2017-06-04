@@ -1,4 +1,6 @@
 class OrdersController < CrudController
+  before_action :permit_if_admin, only: [:confirm]
+
   def index
     @objects = current_user.admin? ? Order.all.order(created_at: :desc) : current_user
       .orders
@@ -8,6 +10,11 @@ class OrdersController < CrudController
 
   def show
     @object = model.find(params[:id])
+  end
+
+  def confirm
+    @object.confirmed!
+    redirect_to collection_path
   end
 
   def new

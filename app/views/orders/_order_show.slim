@@ -8,3 +8,7 @@
           = object.created_at.strftime("%B %d, %Y")
     = f.input :units, label: t(:units).capitalize, disabled: true
     = f.input :description, label: t(:description).capitalize, disabled: true
+- if object.unconfirmed? && current_user.admin?
+  = link_to confirm_order_path do 
+  	button.btn.btn-primary data-order-id = object.id
+  		| Confirmar

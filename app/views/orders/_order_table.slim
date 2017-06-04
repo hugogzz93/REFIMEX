@@ -7,6 +7,7 @@ table.table
       th = t(:units).capitalize
       th = t(:cost).capitalize
       th = t(:date_f).capitalize
+      th = t(:confirmed).capitalize
       th = t(:actions).capitalize
   tbody
     - objects.each do |o|
@@ -17,6 +18,11 @@ table.table
         td = o.units
         td = "$#{o.total_cost}"
         td = o.created_at.strftime("%B %d, %Y")
+        td
+          - if o.confirmed? 
+            i class="fa fa-check" aria-hidden="true"
+          - else
+            i class="fa fa-times" aria-hidden="true"
         td
           span.badge.badge-primary
             = link_to t(:view).capitalize, order_path(o)

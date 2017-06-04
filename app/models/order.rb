@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   belongs_to :user
   belongs_to :product
   validate :positive_unit_count
+  enum status: [:unconfirmed, :confirmed]
 
   def positive_unit_count
     errors.add :units, "Unit count must be positive." unless units > 0

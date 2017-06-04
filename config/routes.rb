@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/modifiers/find', to: 'modifiers#find', as: 'find_modifier'
   get '/orders/:product_id/new', to: 'orders#new', as: 'new_order'
+  get '/orders/:id/confirm', to: 'orders#confirm', as: 'confirm_order'
   get 'product_prices/:product_id/new', to: 'product_prices#new',
                                         as: 'new_product_price'
   post 'products/:id/prices', to: 'product_prices#create', as: 'product_price'
