@@ -11,7 +11,10 @@
   height: 100%;
   width: 100%;
 
-
+  #logo {
+    margin-top: -8px;
+  }
+  
   #log_in_nav {
     max-width: 3em;
     float: right;
@@ -154,7 +157,7 @@
           text-transform: uppercase;
           font-weight: 700;
           font-size: 13px;
-          color: $gray-darker;
+          color: $theme-primary;
           &:hover {
             color: $theme-primary;
           }
@@ -163,22 +166,22 @@
           > a,
           > a:focus {
             color: $theme-primary;
-            background-color: transparent;
+            background-color: white;
             &:hover {
-              background-color: transparent;
+              background-color: white;
             }
           }
         }
       }
     }
     @media (min-width: 768px) {
-      background-color: transparent;
+      background-color: white;
       border-bottom: 1px solid rgba(255,255,255,.3);
       .navbar-header .navbar-brand {
-        color: fade_in(white, 0.70);
+        color: $theme-primary;
         &:hover,
         &:focus {
-          color: white;
+          color: $theme-primary;
         }
       }
       .nav > li > a,
