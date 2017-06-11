@@ -13,6 +13,6 @@
         = f.input :carbon_tax, required: true, label: t(:carbon_tax), input_html: { value: previous.carbon_tax}
     .row
       .col
-        = f.input :active_date, as: :string, readonly: true, label: t(:active_date)
+        = f.input :active_date, as: :string, readonly: true, label: t(:active_date), input_html: { value: Time.zone.now.strftime('%d-%m-%Y') }
   .form-actions
     = f.button :submit, t(:save).capitalize, class: 'btn-primary'
