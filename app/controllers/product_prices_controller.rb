@@ -8,6 +8,10 @@ class ProductPricesController < CrudController
     params[:product_price][:active_date] = Time.zone
                                           .parse(params[:product_price][:active_date])
     if model.create object_params
+      product = Product.find(object_params[:product_id])
+      product.users.each do |user|
+        OrderMailer.price_update(user, product).deliver_later
+      end
       redirect_to parent_path(Product.find(object_params[:product_id]))
     else
       render :new
