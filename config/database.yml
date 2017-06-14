@@ -21,8 +21,9 @@ test:
 
 production:
  <<: *default
- host: localhost
- username: rails
- password: <%= ENV['POSTGRESQL_URL'] %>
+ # host: localhost
+ # username: rails
+ # password: <%= ENV['POSTGRESQL_URL'] %>
+ url: <%= ENV['DATABASE_URL'] %>
 
 
