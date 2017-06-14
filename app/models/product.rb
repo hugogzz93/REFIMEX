@@ -3,8 +3,16 @@ class Product < ApplicationRecord
   has_many :modifiers, dependent: :destroy
   has_many :users, through: :modifiers
   has_many :product_prices, inverse_of: :product, dependent: :destroy
+  after_create :set_price_time_to_start_of_day
 
   accepts_nested_attributes_for :product_prices
+
+  def set_price_time_to_start_of_day
+    if product_prices.any?
+      pp = product_prices.first
+      pp.update(active_date: pp.active_date.beginning_of_day)
+    end
+  end
 
   def get_taxes
   	get :tax
