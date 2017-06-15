@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   has_many :modifiers, dependent: :destroy
   has_many :users, through: :modifiers
   has_many :product_prices, inverse_of: :product, dependent: :destroy
+  has_many :orders, dependent: :destroy
   after_create :set_price_time_to_start_of_day
 
   accepts_nested_attributes_for :product_prices
