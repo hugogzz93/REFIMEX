@@ -3,10 +3,14 @@
     .form-group
       .row
         .col
-          h4 = object.product.name
+          h4 = object.product_name
         .col
-          = object.created_at.strftime("%B %d, %Y")
-    = f.input :units, label: t(:units).capitalize, disabled: true
+          = object.created_at.strftime("%b %d, %Y")
+    .row
+      .col-4
+        = f.input :units, label: t(:units).capitalize, disabled: true
+      .col-4
+        = f.input :price, label: t(:price).capitalize, disabled: true
     = f.input :description, label: t(:description).capitalize, disabled: true
 - if object.unconfirmed? && current_user.admin?
   = link_to confirm_order_path do 

@@ -14,11 +14,11 @@
 		  tbody
 		    - @objects.each do |u|
 		      tr
-		        td = u.product.name
+		        td = u.product_name
 		        td = u.valid_quote
 		        td = u.state_quote
 		        td = u.carbon_tax
-		        td = u.active_date.strftime("%B %d, %Y")
+		        td = u.active_date.strftime("%b %d, %Y")
 		        td = link_to product_tax_history_path
 
 

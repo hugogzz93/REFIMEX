@@ -11,7 +11,7 @@
         - Product.all.each do |p|
           - m = p.find_or_create_modifier_for(user)
           tr
-            td = m.product.name
+            td = m.product_name
             td = "$#{m.product.price_for user}"
             td
               span.badge.badge-primary 

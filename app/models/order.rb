@@ -5,6 +5,12 @@ class Order < ApplicationRecord
   validate :positive_unit_count
   enum status: [:unconfirmed, :confirmed]
 
+  before_create :set_product_name
+
+  def set_product_name
+    product_name = product.name
+  end
+
   def positive_unit_count
     errors.add :units, "Unit count must be positive." unless units > 0
   end

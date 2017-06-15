@@ -16,10 +16,10 @@ html#frontpage
             th Total
         tbody
           tr
-            td = @order.product.name
+            td = @order.product_name
             td = @order.units
             td = "$#{@order.total_cost}"
-            td = @order.created_at.strftime("%B %d, %Y")
+            td = @order.created_at.strftime("%b %d, %Y")
             td = "$#{@order.total_cost.to_f}"
   h3 Comentario Adicionales
   p = @order.description

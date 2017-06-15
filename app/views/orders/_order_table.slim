@@ -14,10 +14,10 @@ table.table
       tr
         - if current_user.admin?
           td = o.user.name
-        td = o.product.name
+        td = o.product_name
         td = o.units
-        td = o.created_at.strftime("%B %d, %Y")
         td = "$#{ "%.4f" % o.total_cost}"
+        td = o.created_at.strftime("%b %d, %Y")
         td
           - if o.confirmed? 
             i class="fa fa-check" aria-hidden="true"

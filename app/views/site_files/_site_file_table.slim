@@ -9,7 +9,7 @@ table.table
   tbody
     - objects.each do |u|
       tr
-        td = u.created_at.strftime("%B %d, %Y")
+        td = u.created_at.strftime("%b %d, %Y")
         td = link_to u.certification_file_name, u.certification.url(:original, false)
         - if current_user.admin?
           td 

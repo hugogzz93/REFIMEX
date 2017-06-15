@@ -14,7 +14,7 @@ table.table
         td = u.name
         td = u.email
         td = u.credentials
-        td = u.last_sign_in_at.strftime("%B %d, %Y") if u.last_sign_in_at
+        td = u.last_sign_in_at.strftime("%b %d, %Y") if u.last_sign_in_at
         td = u.sign_in_count
         td 
           span.badge.badge-primary 

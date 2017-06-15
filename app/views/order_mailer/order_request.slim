@@ -10,7 +10,7 @@ html#frontpage
         tbody
           tr
             th Producto
-            td = @order.product.name
+            td = @order.product_name
           tr
             th Unidades
             td = @order.units
@@ -19,7 +19,7 @@ html#frontpage
             td = "$#{@order.total_cost}"
           tr
             th Fecha Creación
-            td = @order.created_at.strftime("%B %d, %Y")
+            td = @order.created_at.strftime("%b %d, %Y")
   h3 Descripción
   p = @order.description
 
