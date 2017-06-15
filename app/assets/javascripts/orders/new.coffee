@@ -7,7 +7,7 @@ $(document).on 'orders#new:loaded', ->
 			$(e.target).addClass('invalid')
 		else 
 			$(e.target).removeClass('invalid')
-			$('#total_price').html( "$#{((gon.pp.final_price-gon.discount.ammount) * e.target.value).toFixed(2)}" )
+			$('#total_price').html( "$#{((gon.pp.final_price-gon.discount.ammount) * e.target.value).toFixed(4)}" )
 
 	# load chart
 	ctx = $('#price_chart')
