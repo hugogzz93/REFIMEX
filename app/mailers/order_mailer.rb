@@ -10,7 +10,7 @@ class OrderMailer < ApplicationMailer
 	def order_request(order, user)
 		@order = order
 		@user = user
-		mail(to: 'refinados@prodigy.net.mx', subject: 'Order Request')
+		mail(to: 'pinelo93@gmail.com', subject: 'Order Request')
 	end
 
 	def price_update(user, product)
