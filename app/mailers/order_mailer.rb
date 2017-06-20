@@ -16,6 +16,7 @@ class OrderMailer < ApplicationMailer
 	def price_update(user, product)
 		@user = user
 		@product = product
-		mail(to: user.email, subject: 'Precio Actualizado')
+		mail(to: user.email, subject: "Precio de #{@product.active_product_price.created_at.strftime("%b %d, %Y")}")
+
 	end
 end

@@ -5,9 +5,9 @@ html#frontpage
     
   body
   p
-    | Buen Dia,
+    | Buen día,
   p
-    = "El Precio de #{@product.name} para el dia #{@product.active_product_price.created_at.strftime("%b %d, %Y")} es de $#{@product.price_for(@user)} pesos por litro."
+    = "El precio de #{@product.name} para el dia #{@product.active_product_price.created_at.strftime("%b %d, %Y")} es de $#{@product.price_for(@user)} pesos por litro."
   p
     | Atentamente,
   p
