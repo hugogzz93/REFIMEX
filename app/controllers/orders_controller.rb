@@ -33,7 +33,11 @@ class OrdersController < CrudController
 
   def create
     if model.register_order object_params.merge(user_id: current_user.id)
-      OrderMailer.order_request(Order.last, current_user).deliver_now
+      begin
+        OrderMailer.order_request(Order.last, current_user).deliver_now
+      rescue => e
+        Rails.logger.info "#{e.full_message}"
+      end
       redirect_to collection_path
     else
       redirect_to collection_path
