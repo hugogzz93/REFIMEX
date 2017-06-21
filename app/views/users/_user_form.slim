@@ -5,7 +5,7 @@
     = f.input :email, label: t(:email).capitalize, placeholder: "example@mail.com"
     = f.input :password, label: t(:password).capitalize, hint: ("#{@minimum_password_length} characters minimum"\
                          if @minimum_password_length)
-    = f.input :password_confirmation, label: (:password_confirmation).capitalize
+    = f.input :password_confirmation, label: t(:password_confirmation).capitalize
     - if user_signed_in? && current_user.admin?
       = f.input :credentials, label: t(:credentials).capitalize, as: :radio_buttons, collection: User.credential_list
 
