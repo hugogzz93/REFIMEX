@@ -8,5 +8,4 @@
         = f.input :remember_me, label: t(:remember_me).capitalize, as: :boolean if devise_mapping.rememberable?
       .form-actions
         = f.button :submit, t(:login), class: 'btn-primary'
-    = render "devise/shared/links"
 
