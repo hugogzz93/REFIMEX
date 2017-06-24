@@ -1,6 +1,6 @@
 class OrderMailer < ApplicationMailer
 	default to: Proc.new { User.admin.pluck(:email) },
-	          from: 'refinadosmx@gmail.com'
+	          from: 'admin@refinados.com'
 
 	def order_confirmation_mail(user)
 		# @user = user
@@ -10,7 +10,7 @@ class OrderMailer < ApplicationMailer
 	def order_request(order, user)
 		@order = order
 		@user = user
-		mail(to: 'refinados@prodigy.net.mx', subject: 'Order Request')
+		mail(to: 'admin@refinados.com', subject: 'Order Request')
 	end
 
 	def price_update(user, product)
