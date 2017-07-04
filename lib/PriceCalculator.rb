@@ -17,7 +17,7 @@ class PriceCalculator
 		end
 
 		def price_calculation(price, discount)
-			(price - discount).round(2)
+			(price + discount).round(2)
 		end
 
 	end
