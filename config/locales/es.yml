@@ -15,7 +15,7 @@ es:
   valid_quote: 'Cuota IEPS Vigente'
   state_quote: 'IEPS Municipio y Estado'
   carbon_tax: 'Impuesto al Carbono'
-  login: 'Iniciar Sessión'
+  login: 'Iniciar Sesión'
   last_login: 'Ultima Sesión'
   logout: 'Cerrar Sessión'
   sign_up: 'Registrar'
