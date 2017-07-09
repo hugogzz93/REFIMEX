@@ -2,10 +2,10 @@ class PriceCalculator
 	class << self
 
 		def calculate_cost(price, modifier, units)
-			calculate_discounted_cost(price_calculation(price, modifier), units)
+			calculate_modified_cost(price_calculation(price, modifier), units)
 		end
 
-		def calculate_discounted_cost(price, units)
+		def calculate_modified_cost(price, units)
 			price*units
 		end
 		
@@ -16,9 +16,8 @@ class PriceCalculator
 			end
 		end
 
-		def price_calculation(price, discount)
-			(price + discount).round(2)
+		def price_calculation(price, modification)
+			(price + modification).round(4)
 		end
-
 	end
 end

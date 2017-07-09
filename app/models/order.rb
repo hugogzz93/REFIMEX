@@ -16,7 +16,7 @@ class Order < ApplicationRecord
   end
 
   def total_cost
-    PriceCalculator.calculate_discounted_cost(self.price, units)
+    PriceCalculator.calculate_modified_cost(self.price, units)
   end
 
   def set_price_state(product_price, modifier)

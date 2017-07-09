@@ -1,10 +1,11 @@
 require 'rails_helper'
 
-RSpec.feature 'admin creates a product', type: :feature do 
+RSpec.feature 'admin creates a product', type: :feature do
+	let(:new_product) { NewProduct.new}
+
 	context 'they have all values filled' do
-		scenario 'they see the product form' do
+		scenario 'user is created' do
 			login_as(create(:admin), :scope => :user)
-			new_product = NewProduct.new
 
 			new_product.go_to_form
 			new_product.fill_all_fields
@@ -15,9 +16,8 @@ RSpec.feature 'admin creates a product', type: :feature do
 	end
 
 	context 'they are missing values' do
-		scenario 'they see the product form' do
+		scenario 'user is not created' do
 			login_as(create(:admin), :scope => :user)
-			new_product = NewProduct.new
 
 			new_product.go_to_form
 			new_product.fill_some_fields
