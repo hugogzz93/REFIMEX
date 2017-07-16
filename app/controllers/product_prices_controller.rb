@@ -24,7 +24,7 @@ class ProductPricesController < CrudController
   end
 
   def tax_index
-    products = Product.all
+    products = current_user.admin? ? Product.all : current_user.products
     @objects = products.all.collect do |x|
       x.product_prices
        .where('active_date <= :now', now: Time.zone.now)
