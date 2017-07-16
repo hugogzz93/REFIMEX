@@ -13,10 +13,10 @@ table.table
     - objects.each do |u|
       tr
         td = u.active_date.strftime("%b %d, %Y")
-        td = "#{ "%.4f" % u.valid_quote}"
-        td = "#{ "%.4f" % u.state_quote}"
-        td = "#{ "%.4f" % u.carbon_tax}"
-        td = "#{ "%.4f" % u.final_price}"
+        td = "#{ format_number(u.valid_quote)}"
+        td = "#{ format_number(u.state_quote)}"
+        td = "#{ format_number(u.carbon_tax)}"
+        td = "#{ format_number(u.final_price)}"
         - if current_user.admin?
           td 
             span.badge.badge-danger

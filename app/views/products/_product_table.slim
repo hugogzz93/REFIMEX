@@ -8,7 +8,7 @@ table.table
     - objects.each do |o|
       tr
         td = o.name
-        td = "$#{"%.4f" % o.price}"
+        td = "$#{ format_number(o.price) }"
         td
           span.badge.badge-primary 
             = link_to t(:edit).capitalize, edit_product_path(o)

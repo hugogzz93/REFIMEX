@@ -15,8 +15,8 @@
           - p.users.each do |u|
             tr
               td = u.name
-              td = " #{ "%.4f" % p.discount_for(u)}"
-              td = " #{ "%.4f" % p.price_for(u)}"
+              td = " #{ format_number(p.discount_for(u))}"
+              td = " #{ format_number(p.price_for(u))}"
               td
                 span.badge.badge-primary 
                   = link_to t(:edit).capitalize, new_modifier_path

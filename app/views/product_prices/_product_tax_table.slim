@@ -13,9 +13,9 @@ table.table
       -if u
         tr
           td = u.product.name
-          td = "#{ "%.4f" % u.valid_quote}"
-          td = "#{ "%.4f" % u.state_quote}"
-          td = "#{ "%.4f" % u.carbon_tax}"
+          td = "#{ format_number(u.valid_quote) }"
+          td = "#{ format_number(u.state_quote) }"
+          td = "#{ format_number(u.carbon_tax) }"
           td = u.active_date.strftime("%b %d, %Y")
           td 
             span.badge.badge-primary

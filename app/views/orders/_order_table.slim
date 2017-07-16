@@ -16,7 +16,7 @@ table.table
           td = o.user.name
         td = o.product_name
         td = o.units
-        td = "$#{ "%.4f" % o.total_cost}"
+        td = "$#{ format_number(o.total_cost) }"
         td = o.created_at.strftime("%b %d, %Y")
         td
           - if o.confirmed? 
