@@ -21,7 +21,7 @@ RSpec.feature 'admin creates a user', type: :feature do
 				login_as(create(:admin), :scope => :user)
 				
 				new_user.go_to_form
-				new_user.fill_form_correctly
+				new_user.fill_form_with_mismatched_passwords
 				new_user.save
 
 				expect(page).not_to have_content new_user.attributes[:name]

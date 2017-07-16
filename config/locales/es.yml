@@ -24,7 +24,7 @@ es:
   product: 'producto'
   users: 'usuarios'
   user: 'usuario'
-  amount: 'cantidad'
+  amount: 'cantidad pesos'
   discounts: 'adders'
   discount: 'adder'
   orders: 'ordenes'

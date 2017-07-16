@@ -21,7 +21,7 @@ class ModifiersController < CrudController
 
   def destroy
     redirect_to collection_path
-    @object.destroy
+    @object.product.destroy_modifiers_for(@object.user)
   end
 
   def find # MODIFIERS ARE GENERATED HERE

@@ -1,4 +1,4 @@
 - if current_user.admin?
   = render partial: 'modifiers/modifier_table', locals: { products: @products }
 - else
-  = render partial: 'user_prices', locals: { user: current_user }
+  = render partial: 'user_prices', locals: { user: current_user, products: @products }

@@ -20,7 +20,7 @@ class NewUser
 		fill_in :user_name, with: attributes[:name]
 		fill_in :user_email, with: attributes[:email]
 		fill_in :user_password, with: attributes[:password]
-		fill_in :user_password_confirmation, with: attributes[:password]
+		fill_in :user_password_confirmation, with: 'invalid password'
 		choose 'client'
 	end
 

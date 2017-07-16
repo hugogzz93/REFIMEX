@@ -81,4 +81,8 @@ class Product < ApplicationRecord
   def users
     User.where(products: {id: self.id}).joins(modifiers: :product).distinct
   end
+
+  def destroy_modifiers_for(user)
+    modifiers.where(user: user).destroy_all
+  end
 end
