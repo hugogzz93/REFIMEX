@@ -12,7 +12,7 @@
           - m = p.find_or_create_modifier_for(user)
           tr
             td = m.product.name
-            td = "$#{format_number(m.product_price_for(user))}"
+            td = "$#{format_number(m.product.price_for(user))}"
             td
               span.badge.badge-primary 
                 = link_to t(:order).capitalize, new_order_path(m.product)
