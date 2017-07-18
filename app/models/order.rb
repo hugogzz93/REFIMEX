@@ -31,7 +31,7 @@ class Order < ApplicationRecord
     def register_order(params)
       product = Product.find(params[:product_id])
       product_price = product.active_product_price
-      order = self.new params
+      order = self.new params.merge(product_name: product.name)
   		order.set_price_state(product_price,
   													User.find(params[:user_id]).modifier_for(product))
   		order.save
